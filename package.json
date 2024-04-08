@@ -4,11 +4,13 @@
   "private": true,
   "description": "kimdw524",
   "author": "kimdw524",
+  "homepage": "https://kimdw524.github.io",
   "keywords": [
     "gatsby"
   ],
   "scripts": {
     "develop": "gatsby develop",
+    "deploy": "gh-pages -d public -b main",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
@@ -17,6 +19,7 @@
   },
   "dependencies": {
     "gatsby": "^5.13.3",
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
