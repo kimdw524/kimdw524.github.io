@@ -17,5 +17,5 @@ module.exports = {
     ecmaVersion: 12,
   },
   plugins: ['react', '@typescript-eslint'],
-  rules: {},
+  rules: { 'react/no-unknown-property': ['error', { ignore: ['css'] }] },
 };
