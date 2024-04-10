@@ -4,32 +4,42 @@ import { ReactNode } from 'react';
 
 interface DropdownProps {
   to: string;
+  selected?: boolean;
   children: ReactNode;
 }
 
-const linkCss = css`
-  display: block;
+const linkCss = (selected: boolean) => css`
+  display: inline-block;
+  position: relative;
 
-  padding: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: transparent;
 
-  color: #000;
+  ${selected
+    ? css`
+        color: var(--navbar-link-hover-color);
+        font-weight: 600;
+      `
+    : css`
+        color: var(--navbar-link-color);
+      `}
   text-decoration: none;
 
   cursor: pointer;
   user-select: none;
 
+  transition: all 200ms ease;
+
   :hover {
-    text-decoration: underline;
+    color: var(--navbar-link-hover-color);
   }
 `;
 
-const Link = ({ to, children }: DropdownProps) => {
+const Link = ({ to, selected = false, children }: DropdownProps) => {
   return (
-    <div>
-      <a css={linkCss} href={to}>
-        {children}
-      </a>
-    </div>
+    <a css={linkCss(selected)} href={to}>
+      {children}
+    </a>
   );
 };
 

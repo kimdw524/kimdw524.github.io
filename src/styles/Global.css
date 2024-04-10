@@ -18,4 +18,6 @@ body {
 }
 
 body {
+  --navbar-link-color: #505050;
+  --navbar-link-hover-color: #000;
 }
