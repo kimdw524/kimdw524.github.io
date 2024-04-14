@@ -13,6 +13,8 @@ const linkCss = (selected: boolean) => css`
   position: relative;
 
   padding: 0.75rem 1rem;
+  border-radius: 0.25rem;
+
   background-color: transparent;
 
   ${selected
@@ -28,9 +30,11 @@ const linkCss = (selected: boolean) => css`
   cursor: pointer;
   user-select: none;
 
-  transition: all 200ms ease;
+  transition: all 200ms ease-out;
 
   :hover {
+    background-color: var(--navbar-link-hover-bg);
+
     color: var(--navbar-link-hover-color);
   }
 `;

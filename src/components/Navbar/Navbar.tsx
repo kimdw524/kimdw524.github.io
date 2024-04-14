@@ -8,7 +8,11 @@ interface NavBarProps {
 
 const navbarCss = css`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-direction: row;
+  position: sticky;
+  top: 0;
 
   padding: 0.5rem;
 `;

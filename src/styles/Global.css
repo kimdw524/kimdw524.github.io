@@ -19,5 +19,6 @@ body {
 
 body {
   --navbar-link-color: #505050;
+  --navbar-link-hover-bg: #f8faff;
   --navbar-link-hover-color: #000;
 }

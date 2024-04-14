@@ -1,19 +1,34 @@
 import type { HeadFC, PageProps } from 'gatsby';
 import * as React from 'react';
 import Navbar from '../components/Navbar';
+import useNavigation from '../hooks/useNavigation';
 
 const Index = (props: PageProps) => {
-  const navLinks = ['#link1', '#link2', '#link3'];
+  const navigation = useNavigation();
 
   return (
     <>
       <Navbar>
-        {navLinks.map((link, index) => (
-          <Navbar.Link to={link} key={link} selected={props.location.hash === link}>
-            {index + 1}번 메뉴
-          </Navbar.Link>
-        ))}
+        <Navbar.Logo>kimdw524&apos;s blog</Navbar.Logo>
+        <Navbar.Item>
+          {navigation.map((nav) => (
+            <Navbar.Link
+              to={nav.slug}
+              key={nav.slug}
+              selected={props.location.pathname === nav.slug}
+            >
+              {nav.name}
+            </Navbar.Link>
+          ))}
+        </Navbar.Item>
       </Navbar>
+
+      {new Array(100).fill(0).map((i, index) => (
+        <>
+          {index}
+          <br />
+        </>
+      ))}
     </>
   );
 };
