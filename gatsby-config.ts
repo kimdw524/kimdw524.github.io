@@ -3,6 +3,7 @@ import type { GatsbyConfig } from 'gatsby';
 const config: GatsbyConfig = {
   siteMetadata: {
     siteUrl: `https://kimdw524.github.io`,
+    siteName: 'name',
     navigation: [
       { name: 'Home', slug: '/' },
       { name: 'Posts', slug: '/posts' },

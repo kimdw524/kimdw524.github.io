@@ -1,18 +1,22 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-interface NavigationProps {
+interface SiteMetadataProps {
   site: {
     siteMetadata: {
+      siteUrl: string;
+      siteName: string;
       navigation: { name: string; slug: string }[];
     };
   };
 }
 
-const useNavigation = () => {
-  const data = useStaticQuery<NavigationProps>(graphql`
+const useSiteMetadata = () => {
+  const data = useStaticQuery<SiteMetadataProps>(graphql`
     query {
       site {
         siteMetadata {
+          siteUrl
+          siteName
           navigation {
             name
             slug
@@ -22,7 +26,7 @@ const useNavigation = () => {
     }
   `);
 
-  return data.site.siteMetadata.navigation;
+  return data.site.siteMetadata;
 };
 
-export default useNavigation;
+export default useSiteMetadata;
