@@ -13,10 +13,19 @@ const logoCss = css`
   font-weight: 600;
 
   user-select: none;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 const Logo = (props: NavbarLogoProps) => {
-  return <div css={logoCss}>{props.children}</div>;
+  return (
+    <div css={logoCss}>
+      <a href="/">{props.children}</a>
+    </div>
+  );
 };
 
 export default Logo;

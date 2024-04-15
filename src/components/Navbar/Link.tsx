@@ -33,8 +33,6 @@ const linkCss = (selected: boolean) => css`
   transition: all 200ms ease-out;
 
   :hover {
-    background-color: var(--navbar-link-hover-bg);
-
     color: var(--navbar-link-hover-color);
   }
 `;
