@@ -1,17 +1,24 @@
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
 import type { HeadFC, PageProps } from 'gatsby';
 import * as React from 'react';
 import Navbar from '../components/Navbar';
-import useNavigation from '../hooks/useNavigation';
+import useSiteMetadata from '../hooks/useSiteMetadata';
 
 const Index = (props: PageProps) => {
-  const navigation = useNavigation();
+  const siteMetadata = useSiteMetadata();
 
   return (
-    <>
+    <div
+      css={css`
+        max-width: 1024px;
+        margin: 0 auto;
+      `}
+    >
       <Navbar>
-        <Navbar.Logo>kimdw524&apos;s blog</Navbar.Logo>
+        <Navbar.Logo>{siteMetadata.siteName}</Navbar.Logo>
         <Navbar.Item>
-          {navigation.map((nav) => (
+          {siteMetadata.navigation.map((nav) => (
             <Navbar.Link
               to={nav.slug}
               key={nav.slug}
@@ -24,15 +31,18 @@ const Index = (props: PageProps) => {
       </Navbar>
 
       {new Array(100).fill(0).map((i, index) => (
-        <>
+        <div key={index}>
           {index}
           <br />
-        </>
+        </div>
       ))}
-    </>
+    </div>
   );
 };
 
 export default Index;
 
-export const Head: HeadFC = () => <title>kimdw524 blog</title>;
+export const Head: HeadFC = () => {
+  const siteMedata = useSiteMetadata();
+  return <title>{siteMedata.siteName}</title>;
+};
