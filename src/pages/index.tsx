@@ -4,6 +4,7 @@ import type { HeadFC, PageProps } from 'gatsby';
 import * as React from 'react';
 import Navbar from '../components/Navbar';
 import useSiteMetadata from '../hooks/useSiteMetadata';
+import Section from '../components/Section';
 
 const Index = (props: PageProps) => {
   const siteMetadata = useSiteMetadata();
@@ -30,12 +31,16 @@ const Index = (props: PageProps) => {
         </Navbar.Item>
       </Navbar>
 
-      {new Array(100).fill(0).map((i, index) => (
-        <div key={index}>
-          {index}
-          <br />
-        </div>
-      ))}
+      <div
+        css={css`
+          padding: 0 0.75rem;
+        `}
+      >
+        <Section>
+          <Section.Head>Posts</Section.Head>
+          <div>asdsd</div>
+        </Section>
+      </div>
     </div>
   );
 };
