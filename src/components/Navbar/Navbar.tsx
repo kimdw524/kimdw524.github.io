@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import { ReactElement, useRef } from 'react';
+import { ReactNode, useRef } from 'react';
 import useStickyPinned from '../../hooks/useStickyPinned';
 
 interface NavBarProps {
-  children: ReactElement | ReactElement[];
+  children: ReactNode;
 }
 
 const navbarCss = css`
