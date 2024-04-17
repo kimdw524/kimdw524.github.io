@@ -29,16 +29,15 @@ const shadowCss = (toggle: boolean) => css`
     width: 100%;
     height: 100%;
 
-    background-color: rgba(0, 0, 0, 0.33);
-
-    transition: opacity 300ms ease;
+    transition: background-color 300ms ease;
 
     ${toggle
       ? css`
-          opacity: 1;
+          background-color: rgba(0, 0, 0, 0.33);
         `
       : css`
-          opacity: 0;
+          background-color: transparent;
+
           pointer-events: none;
         `}
   }
@@ -48,13 +47,16 @@ const containerCss = (toggle: boolean) => css`
   @media (max-width: 576px) {
     display: flex;
     flex-direction: column;
+    position: fixed;
+    left: 100%;
+
     width: calc(100% - 4rem);
 
     background-color: var(--body-bg);
 
     transition: all 300ms ease;
 
-    transform: translateX(${toggle ? '4rem' : '100%'});
+    transform: translateX(${toggle ? '-100%' : '0'});
   }
 `;
 
