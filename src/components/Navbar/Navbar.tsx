@@ -33,6 +33,10 @@ const pinnedNavbarCss = css`
   border-bottom: 1px solid var(--navbar-border);
 
   font-size: 1rem;
+
+  @media (max-width: 576px) {
+    padding: 0.5rem 1rem;
+  }
 `;
 
 const Navbar = ({ children }: NavBarProps) => {

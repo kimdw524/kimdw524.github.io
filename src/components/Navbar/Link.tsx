@@ -13,7 +13,6 @@ const linkCss = (selected: boolean) => css`
   position: relative;
 
   padding: 0.75rem 1rem;
-  border-radius: 0.25rem;
 
   background-color: transparent;
 

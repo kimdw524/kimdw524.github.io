@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import { FiMenu } from '@react-icons/all-files/fi/FiMenu';
-import { ReactNode, useState } from 'react';
+import { MouseEvent, ReactNode, useState } from 'react';
 
 interface NavbarItemProps {
   children: ReactNode;
@@ -47,16 +47,42 @@ const containerCss = (toggle: boolean) => css`
   @media (max-width: 576px) {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     position: fixed;
+    top: 0;
     left: 100%;
 
-    width: calc(100% - 4rem);
+    width: 20rem;
+    max-width: calc(100% - 4rem);
+    height: 100%;
+    padding: 1rem 0;
+    box-shadow: var(--navbar-offcanvas-boxShadow);
+    box-sizing: border-box;
 
     background-color: var(--body-bg);
 
     transition: all 300ms ease;
+    transition-property: transform, opacity;
 
-    transform: translateX(${toggle ? '-100%' : '0'});
+    ${toggle
+      ? css`
+          transform: translateX(-100%);
+          opacity: 1;
+        `
+      : css`
+          transform: translateX(0);
+          opacity: 0;
+        `}
+    * {
+      display: inline-block;
+
+      width: 100%;
+      padding: 0.75rem 2rem;
+      box-sizing: border-box;
+
+      font-size: 1.125rem;
+      text-align: right;
+    }
   }
 `;
 
@@ -69,7 +95,9 @@ const Item = (props: NavbarItemProps) => {
         <FiMenu size={24} />
       </div>
       <div css={shadowCss(toggle)} onClick={() => setToggle(false)}>
-        <div css={containerCss(toggle)}>{props.children}</div>
+        <div css={containerCss(toggle)} onClick={(e) => e.stopPropagation()}>
+          {props.children}
+        </div>
       </div>
     </div>
   );
