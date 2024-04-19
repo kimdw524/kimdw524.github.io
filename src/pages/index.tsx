@@ -6,7 +6,15 @@ import Navbar from '../components/Navbar';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 import Section from '../components/Section';
 
-const Index = (props: PageProps) => {
+interface IndexProps extends PageProps {
+  data: {
+    allMarkdownRemark: { edges: unknown };
+  };
+}
+
+const Index = (props: IndexProps) => {
+  console.log(props);
+
   const siteMetadata = useSiteMetadata();
 
   return (

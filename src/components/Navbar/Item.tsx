@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import { FiMenu } from '@react-icons/all-files/fi/FiMenu';
-import { MouseEvent, ReactNode, useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 interface NavbarItemProps {
   children: ReactNode;
