@@ -17,9 +17,9 @@ const config: GatsbyConfig = {
   plugins: [
     `gatsby-plugin-emotion`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        excerpt_separator: `<!-- endexcerpt -->`,
+        extensions: [`.md`, `.mdx`],
       },
     },
     {
