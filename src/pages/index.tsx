@@ -5,6 +5,7 @@ import * as React from 'react';
 import Navbar from '../components/Navbar';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 import Section from '../components/Section';
+import useRecentPosts from '../hooks/useRecentPosts';
 
 interface IndexProps extends PageProps {
   data: {
@@ -13,9 +14,10 @@ interface IndexProps extends PageProps {
 }
 
 const Index = (props: IndexProps) => {
-  console.log(props);
-
+  const recentPosts = useRecentPosts();
   const siteMetadata = useSiteMetadata();
+
+  console.log(recentPosts);
 
   return (
     <div
