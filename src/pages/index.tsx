@@ -43,6 +43,7 @@ const Index = (props: IndexProps) => {
           <PostList key={post.id}>
             <PostList.Title>{post.frontmatter.title}</PostList.Title>
             <PostList.Excerpt>{post.excerpt}</PostList.Excerpt>
+            <PostList.Tag>{post.frontmatter.tags}</PostList.Tag>
             <PostList.Date>{post.frontmatter.date}</PostList.Date>
           </PostList>
         ))}
