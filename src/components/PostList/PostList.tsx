@@ -7,9 +7,18 @@ interface PostListProps {
 }
 
 const postListCss = css`
+  display: inline-block;
+
+  width: 50%;
   padding: 1rem;
+  box-sizing: border-box;
 
   cursor: pointer;
+
+  @media (max-width: 576px) {
+    display: block;
+    width: 100%;
+  }
 `;
 
 export const PostListContext = createContext<boolean>(false);
