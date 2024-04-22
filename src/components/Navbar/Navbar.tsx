@@ -8,15 +8,9 @@ interface NavBarProps {
 }
 
 const navbarCss = css`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
   position: sticky;
   top: -1px;
 
-  max-width: var(--body-maxWidth);
-  margin: 0 auto;
   padding: 1.5rem;
   border-bottom: 1px solid transparent;
 
@@ -33,11 +27,25 @@ const pinnedNavbarCss = css`
   border-top: 1px solid transparent;
   border-bottom: 1px solid var(--navbar-border);
 
+  background-color: color-mix(in srgb, var(--body-bg) 66%, #ffffff19);
+
   font-size: 1rem;
+
+  backdrop-filter: blur(6px);
 
   @media (max-width: 576px) {
     padding: 0.5rem 1rem;
   }
+`;
+
+const containerCss = css`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+
+  max-width: var(--body-maxWidth);
+  margin: 0 auto;
 `;
 
 const Navbar = ({ children }: NavBarProps) => {
@@ -46,7 +54,7 @@ const Navbar = ({ children }: NavBarProps) => {
 
   return (
     <div css={[navbarCss, stickyPinned && pinnedNavbarCss]} ref={ref}>
-      {children}
+      <div css={containerCss}>{children}</div>
     </div>
   );
 };
