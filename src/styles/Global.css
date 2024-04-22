@@ -19,6 +19,7 @@ body {
   --navbar-offcanvas-boxShadow: -1px 0 6px #888888;
   --section-bg: #f8fafc;
   --postlist-date-color: #666;
+  --postlist-title-hover-color: #2563eb;
 }
 
 body {
