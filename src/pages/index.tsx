@@ -1,11 +1,12 @@
 /** @jsx jsx */
-import { css, jsx } from '@emotion/react';
+import { jsx } from '@emotion/react';
 import type { HeadFC, PageProps } from 'gatsby';
 import * as React from 'react';
 import Navbar from '../components/Navbar';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 import Section from '../components/Section';
 import useRecentPosts from '../hooks/useRecentPosts';
+import PostList from '../components/PostList';
 
 interface IndexProps extends PageProps {
   data: {
@@ -20,12 +21,7 @@ const Index = (props: IndexProps) => {
   console.log(recentPosts);
 
   return (
-    <div
-      css={css`
-        max-width: 1024px;
-        margin: 0 auto;
-      `}
-    >
+    <div>
       <Navbar>
         <Navbar.Logo>{siteMetadata.siteName}</Navbar.Logo>
         <Navbar.Item>
@@ -41,16 +37,16 @@ const Index = (props: IndexProps) => {
         </Navbar.Item>
       </Navbar>
 
-      <div
-        css={css`
-          padding: 0 0.75rem;
-        `}
-      >
-        <Section>
-          <Section.Head>Posts</Section.Head>
-          <div>asdsd</div>
-        </Section>
-      </div>
+      <Section>
+        <Section.Head>Posts</Section.Head>
+        {recentPosts.map((post) => (
+          <PostList key={post.id}>
+            <PostList.Title>{post.frontmatter.title}</PostList.Title>
+            <PostList.Excerpt>{post.excerpt}</PostList.Excerpt>
+            <PostList.Date>{post.frontmatter.date}</PostList.Date>
+          </PostList>
+        ))}
+      </Section>
     </div>
   );
 };

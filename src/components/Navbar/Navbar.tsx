@@ -15,11 +15,12 @@ const navbarCss = css`
   position: sticky;
   top: -1px;
 
+  max-width: var(--body-maxWidth);
+  margin: 0 auto;
   padding: 1.5rem;
+  border-bottom: 1px solid transparent;
 
   background-color: var(--body-bg);
-
-  border-bottom: 1px solid transparent;
 
   font-size: 1.125rem;
 
