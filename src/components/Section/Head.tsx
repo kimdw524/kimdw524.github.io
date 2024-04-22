@@ -9,8 +9,9 @@ interface SectionHeadProps {
 const headCss = css`
   margin: 0.5rem 0;
 
-  font-size: 1.5rem;
   font-weight: 700;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
 `;
 
 const Head = ({ children }: SectionHeadProps) => {
