@@ -21,7 +21,6 @@ const postListCss = css`
   }
 
   @media (max-width: 576px) {
-    display: block;
     width: 100%;
   }
 `;
@@ -32,7 +31,7 @@ const PostList = ({ slug, children }: PostListProps) => {
   const [hover, setHover] = useState(false);
 
   return (
-    <a href={`posts/${slug}}`}>
+    <a href={`posts/${slug}`}>
       <div css={postListCss} onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}>
         <PostListContext.Provider value={hover}>{children}</PostListContext.Provider>
       </div>
