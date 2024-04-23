@@ -27,11 +27,25 @@ const pinnedNavbarCss = css`
   border-top: 1px solid transparent;
   border-bottom: 1px solid var(--navbar-border);
 
-  background-color: color-mix(in srgb, var(--body-bg) 66%, #ffffff19);
+  background-color: transparent;
 
   font-size: 1rem;
 
-  backdrop-filter: blur(6px);
+  ::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: color-mix(in srgb, var(--body-bg) 66%, #ffffff19);
+
+    backdrop-filter: blur(6px);
+
+    content: '';
+  }
 
   @media (max-width: 576px) {
     padding: 0.5rem 1rem;
