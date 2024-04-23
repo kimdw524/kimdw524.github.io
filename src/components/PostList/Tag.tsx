@@ -8,16 +8,18 @@ interface PostListTagProps {
 const tagCss = css`
   display: inline-block;
 
-  padding: 0.5rem;
+  margin: 0.125rem;
+  padding: 0.375rem;
+  border-radius: 0.25rem;
 
   background-color: var(--tag-bg);
 
-  font-weight: 500;
-  font-size: 0.875rem;
+  font-weight: 400;
+  font-size: 0.75rem;
 `;
 
 const containerCss = css`
-  padding: 1rem 0.5rem;
+  padding: 0.375rem;
 `;
 
 const Tag = ({ children }: PostListTagProps) => {

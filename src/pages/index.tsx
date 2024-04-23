@@ -46,8 +46,8 @@ const Index = (props: IndexProps) => {
             </PostList.Banner>
             <PostList.Title>{post.frontmatter.title}</PostList.Title>
             <PostList.Excerpt>{post.excerpt}</PostList.Excerpt>
-            <PostList.Tag>{post.frontmatter.tags}</PostList.Tag>
             <PostList.Date>{post.frontmatter.date}</PostList.Date>
+            <PostList.Tag>{post.frontmatter.tags}</PostList.Tag>
           </PostList>
         ))}
       </Section>
