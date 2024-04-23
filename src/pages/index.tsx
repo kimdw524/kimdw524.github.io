@@ -39,7 +39,7 @@ const Index = (props: IndexProps) => {
       <Section>
         <Section.Head>Posts</Section.Head>
         {recentPosts.map((post) => (
-          <PostList key={post.id}>
+          <PostList key={post.id} slug={post.id}>
             <PostList.Banner alt={post.frontmatter.title}>
               {post.frontmatter.banner}
             </PostList.Banner>
