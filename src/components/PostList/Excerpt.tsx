@@ -6,7 +6,10 @@ interface PostListExcerptProps {
   children: ReactNode;
 }
 
-const excerptCss = css``;
+const excerptCss = css`
+  color: var(--postlist-excerpt-color);
+  font-weight: 300;
+`;
 
 const Excerpt = ({ children }: PostListExcerptProps) => {
   return <div css={excerptCss}>{children}</div>;

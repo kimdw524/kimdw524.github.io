@@ -9,11 +9,15 @@ interface PostListProps {
 const postListCss = css`
   display: inline-block;
 
-  width: 50%;
+  width: 33.3%;
   padding: 1rem;
   box-sizing: border-box;
 
   cursor: pointer;
+
+  @media (max-width: 720px) {
+    width: 50%;
+  }
 
   @media (max-width: 576px) {
     display: block;
