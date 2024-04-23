@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import type { HeadFC, PageProps } from 'gatsby';
-import * as React from 'react';
 import Navbar from '../components/Navbar';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 import Section from '../components/Section';

@@ -14,6 +14,7 @@ const tagCss = css`
 
   background-color: var(--tag-bg);
 
+  color: var(--body-color);
   font-weight: 400;
   font-size: 0.75rem;
 `;

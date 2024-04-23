@@ -12,6 +12,7 @@ const titleCss = css`
 
   padding: 0.5rem 0;
 
+  color: var(--body-color);
   font-weight: 500;
   font-size: 1.25rem;
 
