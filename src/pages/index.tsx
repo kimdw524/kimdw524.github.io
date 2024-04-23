@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import type { HeadFC, PageProps } from 'gatsby';
-import Navbar from '../components/Navbar';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 import Section from '../components/Section';
 import useRecentPosts from '../hooks/useRecentPosts';
 import PostList from '../components/PostList';
+import Layout from '../components/Layout';
 
 interface IndexProps extends PageProps {
   data: {
@@ -15,27 +15,9 @@ interface IndexProps extends PageProps {
 
 const Index = (props: IndexProps) => {
   const recentPosts = useRecentPosts();
-  const siteMetadata = useSiteMetadata();
-
-  console.log(recentPosts);
 
   return (
-    <div>
-      <Navbar>
-        <Navbar.Logo>{siteMetadata.siteName}</Navbar.Logo>
-        <Navbar.Item>
-          {siteMetadata.navigation.map((nav) => (
-            <Navbar.Link
-              to={nav.slug}
-              key={nav.slug}
-              selected={props.location.pathname === nav.slug}
-            >
-              {nav.name}
-            </Navbar.Link>
-          ))}
-        </Navbar.Item>
-      </Navbar>
-
+    <Layout>
       <Section>
         <Section.Head>Posts</Section.Head>
         {recentPosts.map((post) => (
@@ -50,7 +32,7 @@ const Index = (props: IndexProps) => {
           </PostList>
         ))}
       </Section>
-    </div>
+    </Layout>
   );
 };
 
