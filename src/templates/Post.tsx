@@ -1,0 +1,65 @@
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
+import { graphql, type HeadFC, type PageProps } from 'gatsby';
+import Layout from '../components/Layout';
+import useSiteMetadata from '../hooks/useSiteMetadata';
+
+interface PostProps extends PageProps {
+  data: {
+    mdx: {
+      frontmatter: {
+        title: string;
+        date: string;
+        tags: string[];
+        banner: string;
+      };
+      body: string;
+    };
+  };
+}
+
+const containerCss = css`
+  padding: 1rem 2rem;
+`;
+
+const titleCss = css`
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 150%;
+`;
+
+const bodyCss = css`
+  line-height: 175%;
+`;
+
+const Post = (props: PostProps) => {
+  return (
+    <Layout location={props.location}>
+      <div css={containerCss}>
+        <div css={titleCss}>{props.data.mdx.frontmatter.title}</div>
+        <div css={bodyCss}>{props.data.mdx.body}</div>
+      </div>
+    </Layout>
+  );
+};
+
+export default Post;
+
+export const Head: HeadFC = () => {
+  const siteMedata = useSiteMetadata();
+  return <title>{siteMedata.siteName}</title>;
+};
+
+export const query = graphql`
+  query ($id: String!) {
+    mdx(id: { eq: $id }) {
+      frontmatter {
+        title
+        date
+        tags
+        banner
+      }
+      body
+    }
+  }
+`;
