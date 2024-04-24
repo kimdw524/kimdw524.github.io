@@ -5,10 +5,11 @@ import useSiteMetadata from '../../hooks/useSiteMetadata';
 import Navbar from '../Navbar';
 
 interface LayoutProps {
+  location: Location;
   children: ReactNode;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ location, children }: LayoutProps) => {
   const siteMetadata = useSiteMetadata();
 
   return (

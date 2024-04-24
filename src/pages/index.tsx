@@ -17,7 +17,7 @@ const Index = (props: IndexProps) => {
   const recentPosts = useRecentPosts();
 
   return (
-    <Layout>
+    <Layout location={props.location}>
       <Section>
         <Section.Head>Posts</Section.Head>
         <PostList.Container>
