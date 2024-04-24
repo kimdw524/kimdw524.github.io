@@ -8,13 +8,15 @@ interface PostListTitleProps {
 }
 
 const titleCss = css`
-  display: inline-block;
+  overflow: hidden;
 
   padding: 0.5rem 0;
 
   color: var(--body-color);
   font-weight: 500;
   font-size: 1.25rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   transition: color 150ms ease-out;
 `;
