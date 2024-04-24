@@ -23,6 +23,10 @@ const postListCss = css`
   @media (max-width: 576px) {
     width: 100%;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const PostListContext = createContext<boolean>(false);
@@ -31,11 +35,11 @@ const PostList = ({ slug, children }: PostListProps) => {
   const [hover, setHover] = useState(false);
 
   return (
-    <a href={`posts/${slug}`}>
-      <div css={postListCss} onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}>
+    <div css={postListCss} onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}>
+      <a href={`posts/${slug}`}>
         <PostListContext.Provider value={hover}>{children}</PostListContext.Provider>
-      </div>
-    </a>
+      </a>
+    </div>
   );
 };
 

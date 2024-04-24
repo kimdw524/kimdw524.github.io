@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import type { HeadFC, PageProps } from 'gatsby';
-import useSiteMetadata from '../hooks/useSiteMetadata';
+import Layout from '../components/Layout';
+import PostList from '../components/PostList';
 import Section from '../components/Section';
 import useRecentPosts from '../hooks/useRecentPosts';
-import PostList from '../components/PostList';
-import Layout from '../components/Layout';
+import useSiteMetadata from '../hooks/useSiteMetadata';
 
 interface IndexProps extends PageProps {
   data: {
@@ -20,17 +20,19 @@ const Index = (props: IndexProps) => {
     <Layout>
       <Section>
         <Section.Head>Posts</Section.Head>
-        {recentPosts.map((post) => (
-          <PostList key={post.id} slug={post.id}>
-            <PostList.Banner alt={post.frontmatter.title}>
-              {post.frontmatter.banner}
-            </PostList.Banner>
-            <PostList.Title>{post.frontmatter.title}</PostList.Title>
-            <PostList.Excerpt>{post.excerpt}</PostList.Excerpt>
-            <PostList.Date>{post.frontmatter.date}</PostList.Date>
-            <PostList.Tag>{post.frontmatter.tags}</PostList.Tag>
-          </PostList>
-        ))}
+        <PostList.Container>
+          {recentPosts.map((post) => (
+            <PostList key={post.id} slug={post.id}>
+              <PostList.Banner alt={post.frontmatter.title}>
+                {post.frontmatter.banner}
+              </PostList.Banner>
+              <PostList.Title>{post.frontmatter.title}</PostList.Title>
+              <PostList.Excerpt>{post.excerpt}</PostList.Excerpt>
+              <PostList.Date>{post.frontmatter.date}</PostList.Date>
+              <PostList.Tag>{post.frontmatter.tags}</PostList.Tag>
+            </PostList>
+          ))}
+        </PostList.Container>
       </Section>
     </Layout>
   );
