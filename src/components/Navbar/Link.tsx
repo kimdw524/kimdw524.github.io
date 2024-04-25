@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
+import { Link as GatsbyLink } from 'gatsby';
 import { ReactNode } from 'react';
 
 interface DropdownProps {
@@ -38,9 +39,9 @@ const linkCss = (selected: boolean) => css`
 
 const Link = ({ to, selected = false, children }: DropdownProps) => {
   return (
-    <a css={linkCss(selected)} href={to}>
+    <GatsbyLink css={linkCss(selected)} to={to}>
       {children}
-    </a>
+    </GatsbyLink>
   );
 };
 

@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
+import { Link } from 'gatsby';
 import { ReactNode } from 'react';
 
 interface NavbarLogoProps {
@@ -23,7 +24,7 @@ const logoCss = css`
 const Logo = (props: NavbarLogoProps) => {
   return (
     <div css={logoCss}>
-      <a href="/">{props.children}</a>
+      <Link to="/">{props.children}</Link>
     </div>
   );
 };
