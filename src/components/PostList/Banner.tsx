@@ -1,37 +1,31 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import { useEffect, useState } from 'react';
+import { GatsbyImage, ImageDataLike, getImage } from 'gatsby-plugin-image';
 
 interface PostListBannerProps {
   alt: string;
-  children: string;
+  children: ImageDataLike;
 }
+
+const wrapperCss = css`
+  display: inline-block;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  background-color: #aaa;
+`;
 
 const bannerCss = css`
   width: 100%;
   aspect-ratio: 16 / 9;
 `;
 
-const errorCss = css`
-  display: inline-block;
-
-  width: 100%;
-  aspect-ratio: 16 / 9;
-
-  background-color: #888;
-`;
-
 const Banner = ({ alt, children }: PostListBannerProps) => {
-  const [error, setError] = useState<boolean>(false);
-
-  useEffect(() => {
-    setError(false);
-  }, [children]);
-
-  return error ? (
-    <div css={errorCss}></div>
-  ) : (
-    <img css={bannerCss} onError={() => setError(true)} src={children} alt={alt} />
+  return (
+    <div css={wrapperCss}>
+      <GatsbyImage image={getImage(children)!} css={bannerCss} alt={alt} />
+    </div>
   );
 };
 

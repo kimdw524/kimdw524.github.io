@@ -3,6 +3,7 @@ import { css, jsx } from '@emotion/react';
 import { graphql, type HeadFC, type PageProps } from 'gatsby';
 import Layout from '../components/Layout';
 import useSiteMetadata from '../hooks/useSiteMetadata';
+import { ImageDataLike } from 'gatsby-plugin-image';
 
 interface PostProps extends PageProps {
   data: {
@@ -11,7 +12,7 @@ interface PostProps extends PageProps {
         title: string;
         date: string;
         tags: string[];
-        banner: string;
+        banner: ImageDataLike;
       };
       body: string;
     };
@@ -56,8 +57,12 @@ export const query = graphql`
       frontmatter {
         title
         date
+        banner {
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
         tags
-        banner
       }
       body
     }

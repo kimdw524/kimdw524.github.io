@@ -1,4 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
+import { ImageDataLike } from 'gatsby-plugin-image';
 
 interface RecentPosts {
   allMdx: {
@@ -8,7 +9,7 @@ interface RecentPosts {
       frontmatter: {
         title: string;
         date: string;
-        banner: string;
+        banner: ImageDataLike;
         tags: string[];
       };
     }[];
@@ -25,7 +26,11 @@ const useRecentPosts = () => {
           frontmatter {
             title
             date
-            banner
+            banner {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
             tags
           }
         }
