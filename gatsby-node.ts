@@ -1,5 +1,5 @@
 import path from 'path';
-const PostTemplate = path.resolve('./src/templates/Post.tsx');
+const PostTemplate = path.resolve('./src/templates/PostTemplate.tsx');
 
 export const createPages = async ({ actions, graphql }) => {
   const result = await graphql(`
@@ -21,7 +21,7 @@ export const createPages = async ({ actions, graphql }) => {
       context: {
         id: post.id,
       },
-      defer: true,
+      defer: false,
     });
   });
 };
