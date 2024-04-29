@@ -3,7 +3,7 @@ import { css, jsx } from '@emotion/react';
 import { Link as GatsbyLink } from 'gatsby';
 import { ReactNode } from 'react';
 
-interface DropdownProps {
+interface NavbarLinkProps {
   to: string;
   selected?: boolean;
   children: ReactNode;
@@ -37,7 +37,7 @@ const linkCss = (selected: boolean) => css`
   }
 `;
 
-const Link = ({ to, selected = false, children }: DropdownProps) => {
+const Link = ({ to, selected = false, children }: NavbarLinkProps) => {
   return (
     <GatsbyLink css={linkCss(selected)} to={to}>
       {children}
