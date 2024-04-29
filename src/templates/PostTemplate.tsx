@@ -1,9 +1,10 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import { graphql, Link, type HeadFC, type PageProps } from 'gatsby';
-import Layout from '../components/Layout';
-import useSiteMetadata from '../hooks/useSiteMetadata';
+import { graphql, type HeadFC, type PageProps } from 'gatsby';
 import { ImageDataLike } from 'gatsby-plugin-image';
+import Layout from '../components/Layout';
+import Post from '../components/Post';
+import useSiteMetadata from '../hooks/useSiteMetadata';
 
 interface PostProps extends PageProps {
   data: {
@@ -25,43 +26,21 @@ const containerCss = css`
   padding: 1rem 2rem;
 `;
 
-const titleCss = css`
-  font-weight: 500;
-  font-size: 1.75rem;
-  line-height: 150%;
-`;
-
-const bodyCss = css`
-  line-height: 175%;
-`;
-
-const tagContainerCss = css`
-  margin: 0.5rem 0 1.25rem;
-`;
-
-const tagCss = css`
-  margin-right: 0.5rem;
-`;
-
-const Post = (props: PostProps) => {
+const PostTemplate = (props: PostProps) => {
   return (
     <Layout location={props.location}>
       <div css={containerCss}>
-        <div css={titleCss}>{props.data.mdx.frontmatter.title}</div>
-        <div css={tagContainerCss}>
-          {props.data.mdx.frontmatter.tags.map((tag) => (
-            <Link css={tagCss} key={tag} to="#">
-              {tag}
-            </Link>
-          ))}
-        </div>
-        <div css={bodyCss}>{props.data.mdx.body}</div>
+        <Post>
+          <Post.Title>{props.data.mdx.frontmatter.title}</Post.Title>
+          <Post.Tag>{props.data.mdx.frontmatter.tags}</Post.Tag>
+          <Post.Body>{props.data.mdx.body}</Post.Body>
+        </Post>
       </div>
     </Layout>
   );
 };
 
-export default Post;
+export default PostTemplate;
 
 export const Head: HeadFC = () => {
   const siteMedata = useSiteMetadata();
