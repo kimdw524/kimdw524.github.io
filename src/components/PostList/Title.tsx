@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import { ReactNode, useContext } from 'react';
-import { PostListContext } from './PostList';
+import { PostListContext } from '.';
 
 interface PostListTitleProps {
   children: ReactNode;
