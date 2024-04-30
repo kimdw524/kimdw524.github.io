@@ -1,10 +1,8 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import { Link } from 'gatsby';
 import { ReactNode, createContext, useState } from 'react';
 
 interface PostListProps {
-  slug: string;
   children: ReactNode;
 }
 
@@ -32,14 +30,12 @@ const postListCss = css`
 
 export const PostListContext = createContext<boolean>(false);
 
-const PostList = ({ slug, children }: PostListProps) => {
+const PostList = ({ children }: PostListProps) => {
   const [hover, setHover] = useState(false);
 
   return (
     <div css={postListCss} onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}>
-      <Link to={`posts/${slug}`}>
-        <PostListContext.Provider value={hover}>{children}</PostListContext.Provider>
-      </Link>
+      <PostListContext.Provider value={hover}>{children}</PostListContext.Provider>
     </div>
   );
 };

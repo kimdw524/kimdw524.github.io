@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
-import type { HeadFC, PageProps } from 'gatsby';
+import { Link, type HeadFC, type PageProps } from 'gatsby';
 import Layout from '../components/Layout';
 import PostList from '../components/PostList';
 import Section from '../components/Section';
@@ -22,13 +22,15 @@ const Index = (props: IndexProps) => {
         <Section.Head>Posts</Section.Head>
         <PostList.Container>
           {recentPosts.map((post) => (
-            <PostList key={post.id} slug={post.id}>
-              <PostList.Banner alt={post.frontmatter.title}>
-                {post.frontmatter.banner}
-              </PostList.Banner>
-              <PostList.Title>{post.frontmatter.title}</PostList.Title>
-              <PostList.Excerpt>{post.excerpt}</PostList.Excerpt>
-              <PostList.Date>{post.frontmatter.date}</PostList.Date>
+            <PostList key={post.id}>
+              <Link to={`posts/${post.id}`}>
+                <PostList.Banner alt={post.frontmatter.title}>
+                  {post.frontmatter.banner}
+                </PostList.Banner>
+                <PostList.Title>{post.frontmatter.title}</PostList.Title>
+                <PostList.Excerpt>{post.excerpt}</PostList.Excerpt>
+                <PostList.Date>{post.frontmatter.date}</PostList.Date>
+              </Link>
               <PostList.Tag>{post.frontmatter.tags}</PostList.Tag>
             </PostList>
           ))}
