@@ -26,8 +26,9 @@ const navbarCss = css`
 `;
 
 const pinnedNavbarCss = css`
-  padding: 0.5rem;
   z-index: 10;
+
+  padding: 0.5rem;
 
   border-top: 1px solid transparent;
   border-bottom: 1px solid var(--navbar-border);
