@@ -13,6 +13,7 @@ interface NavBarProps {
 const navbarCss = css`
   position: sticky;
   top: -1px;
+  z-index: 100;
 
   padding: 1.5rem;
   border-bottom: 1px solid transparent;
