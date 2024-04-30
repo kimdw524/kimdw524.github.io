@@ -30,7 +30,7 @@ const Tag = (props: PostTagProps) => {
   return (
     <div css={tagContainerCss}>
       {props.children.map((tag) => (
-        <Link css={tagCss} key={tag} to="#">
+        <Link css={tagCss} key={tag} to={`/tags/${tag}`}>
           {tag}
         </Link>
       ))}

@@ -23,6 +23,8 @@ body {
   --postlist-title-hover-color: #2563eb;
   --postlist-excerpt-color: #444;
   --postlist-tag-bg: #e6eaf0;
+  --postlist-tag-hover-border: #555;
+  --postlist-tag-hover-color: #001ec7;
   --post-tag-color: #999;
   --post-tag-hover-color: #043aff;
   --post-banner-maxWidth: 512px;
