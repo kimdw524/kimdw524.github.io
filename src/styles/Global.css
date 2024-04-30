@@ -24,6 +24,8 @@ body {
   --postlist-excerpt-color: #444;
   --postlist-tag-bg: #e6eaf0;
   --post-tag-color: #999;
+  --post-tag-hover-color: #043aff;
+  --post-banner-maxWidth: 512px;
 }
 
 body {

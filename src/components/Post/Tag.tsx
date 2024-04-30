@@ -19,6 +19,11 @@ const tagCss = css`
 
   color: var(--post-tag-color);
   text-decoration: none;
+
+  :hover {
+    color: var(--post-tag-hover-color);
+    text-decoration: underline;
+  }
 `;
 
 const Tag = (props: PostTagProps) => {
@@ -26,7 +31,7 @@ const Tag = (props: PostTagProps) => {
     <div css={tagContainerCss}>
       {props.children.map((tag) => (
         <Link css={tagCss} key={tag} to="#">
-          #{tag}
+          {tag}
         </Link>
       ))}
     </div>
