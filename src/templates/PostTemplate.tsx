@@ -33,6 +33,7 @@ const PostTemplate = (props: PostProps) => {
         <Post>
           <Post.Title>{props.data.mdx.frontmatter.title}</Post.Title>
           <Post.Tag>{props.data.mdx.frontmatter.tags}</Post.Tag>
+          <Post.Banner alt="banner">{props.data.mdx.frontmatter.banner}</Post.Banner>
           <Post.Body>{props.data.mdx.body}</Post.Body>
         </Post>
       </div>
