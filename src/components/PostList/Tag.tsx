@@ -12,7 +12,7 @@ const tagCss = css`
   padding: 0.375rem;
   border-radius: 0.25rem;
 
-  background-color: var(--tag-bg);
+  background-color: var(--postlist-tag-bg);
 
   color: var(--body-color);
   font-weight: 400;

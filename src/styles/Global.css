@@ -22,8 +22,8 @@ body {
   --postlist-date-color: #666;
   --postlist-title-hover-color: #2563eb;
   --postlist-excerpt-color: #444;
+  --postlist-tag-bg: #e6eaf0;
   --post-tag-color: #999;
-  --tag-bg: #e6eaf0;
 }
 
 body {
