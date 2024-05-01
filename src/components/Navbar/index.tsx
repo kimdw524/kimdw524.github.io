@@ -22,12 +22,15 @@ const navbarCss = css`
 
   font-size: 1.125rem;
 
-  transition: all 200ms ease;
+  transition-property: margin, padding, font-size, border-bottom;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
 `;
 
 const pinnedNavbarCss = css`
   z-index: 10;
 
+  margin: 1rem 0;
   padding: 0.5rem;
 
   border-top: 1px solid transparent;
