@@ -34,8 +34,8 @@ const TagListTemplate = (props: TagListProps) => {
     <Layout location={props.location}>
       <div css={containerCss}>
         <PostList.Container>
-          {props.data.allMdx.nodes.map((post) => (
-            <PostList key={post.id}>
+          {props.data.allMdx.nodes.map((post, index) => (
+            <PostList key={post.id} index={index}>
               <Link to={`/posts/${post.id}`}>
                 <PostList.Banner alt={post.frontmatter.title}>
                   {post.frontmatter.banner}
