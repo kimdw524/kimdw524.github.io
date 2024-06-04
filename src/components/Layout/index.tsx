@@ -2,7 +2,7 @@
 import { jsx } from '@emotion/react';
 import { ReactNode } from 'react';
 import useSiteMetadata from '../../hooks/useSiteMetadata';
-import Navbar from '../Navbar';
+import Navbar from '../navbar';
 
 interface LayoutProps {
   location: Location;

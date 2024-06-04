@@ -3,7 +3,7 @@ import { css, jsx } from '@emotion/react';
 import { Link, graphql, type HeadFC, type PageProps } from 'gatsby';
 import Layout from '../components/Layout';
 import useSiteMetadata from '../hooks/useSiteMetadata';
-import PostList from '../components/PostList';
+import PostList from '../components/postList';
 import { ImageDataLike } from 'gatsby-plugin-image';
 
 interface TagListProps extends PageProps {

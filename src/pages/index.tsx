@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/react';
 import { Link, type HeadFC, type PageProps } from 'gatsby';
-import Layout from '../components/Layout';
-import PostList from '../components/PostList';
-import Section from '../components/Section';
+import Layout from '../components/layout';
+import PostList from '../components/postList';
+import Section from '../components/section';
 import useRecentPosts from '../hooks/useRecentPosts';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 
