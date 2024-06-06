@@ -1,9 +1,8 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import { ReactNode } from 'react';
 
 interface PostBodyProps {
-  children: ReactNode;
+  children: string;
 }
 
 const bodyCss = css`
@@ -11,7 +10,7 @@ const bodyCss = css`
 `;
 
 const Body = (props: PostBodyProps) => {
-  return <div css={bodyCss}>{props.children}</div>;
+  return <div css={bodyCss} dangerouslySetInnerHTML={{ __html: props.children }} />;
 };
 
 export default Body;

@@ -8,14 +8,15 @@ import useSiteMetadata from '../hooks/useSiteMetadata';
 
 interface PostProps extends PageProps {
   data: {
-    mdx: {
+    markdownRemark: {
       frontmatter: {
+        id: number;
         title: string;
         date: string;
         tags: string[];
         banner: ImageDataLike;
       };
-      body: string;
+      html: string;
     };
   };
 }
@@ -27,14 +28,16 @@ const containerCss = css`
 `;
 
 const PostTemplate = (props: PostProps) => {
+  const data = props.data.markdownRemark;
+
   return (
     <Layout location={props.location}>
       <div css={containerCss}>
         <Post>
-          <Post.Title>{props.data.mdx.frontmatter.title}</Post.Title>
-          <Post.Tag>{props.data.mdx.frontmatter.tags}</Post.Tag>
-          <Post.Banner alt="banner">{props.data.mdx.frontmatter.banner}</Post.Banner>
-          <Post.Body>{props.data.mdx.body}</Post.Body>
+          <Post.Title>{data.frontmatter.title}</Post.Title>
+          <Post.Tag>{data.frontmatter.tags}</Post.Tag>
+          <Post.Banner alt="banner">{data.frontmatter.banner}</Post.Banner>
+          <Post.Body>{data.html}</Post.Body>
         </Post>
       </div>
     </Layout>
@@ -49,8 +52,8 @@ export const Head: HeadFC = () => {
 };
 
 export const query = graphql`
-  query ($id: String!) {
-    mdx(id: { eq: $id }) {
+  query ($id: Int!) {
+    markdownRemark(frontmatter: { id: { eq: $id } }) {
       frontmatter {
         id
         title
@@ -62,7 +65,7 @@ export const query = graphql`
         }
         tags
       }
-      body
+      html
     }
   }
 `;
