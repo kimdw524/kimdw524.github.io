@@ -2,8 +2,8 @@
 import { css, jsx } from '@emotion/react';
 import { graphql, type HeadFC, type PageProps } from 'gatsby';
 import { ImageDataLike } from 'gatsby-plugin-image';
-import Layout from '../components/Layout';
-import Post from '../components/Post';
+import Layout from '../components/layout';
+import Post from '../components/post';
 import useSiteMetadata from '../hooks/useSiteMetadata';
 
 interface PostProps extends PageProps {

@@ -1,8 +1,9 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/react';
+import { ThemeProvider, jsx } from '@emotion/react';
 import { ReactNode } from 'react';
 import useSiteMetadata from '../../hooks/useSiteMetadata';
-import Navbar from '../Navbar';
+import Navbar from '../navbar';
+import lightTheme from '../../themes/lightTheme';
 
 interface LayoutProps {
   location: Location;
@@ -13,19 +14,21 @@ const Layout = ({ location, children }: LayoutProps) => {
   const siteMetadata = useSiteMetadata();
 
   return (
-    <div>
-      <Navbar>
-        <Navbar.Logo>{siteMetadata.siteName}</Navbar.Logo>
-        <Navbar.Item>
-          {siteMetadata.navigation.map((nav) => (
-            <Navbar.Link to={nav.slug} key={nav.slug} selected={location.pathname === nav.slug}>
-              {nav.name}
-            </Navbar.Link>
-          ))}
-        </Navbar.Item>
-      </Navbar>
-      {children}
-    </div>
+    <ThemeProvider theme={lightTheme}>
+      <div>
+        <Navbar>
+          <Navbar.Logo>{siteMetadata.siteName}</Navbar.Logo>
+          <Navbar.Item>
+            {siteMetadata.navigation.map((nav) => (
+              <Navbar.Link to={nav.slug} key={nav.slug} selected={location.pathname === nav.slug}>
+                {nav.name}
+              </Navbar.Link>
+            ))}
+          </Navbar.Item>
+        </Navbar>
+        {children}
+      </div>
+    </ThemeProvider>
   );
 };
 
