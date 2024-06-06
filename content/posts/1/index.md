@@ -9,8 +9,6 @@ tags:
   - JavaScript
 ---
 
-# ㅁㄴㅇㅁㄴㅇ
-
 https://www.patterns.dev/
 
 번역본: https://patterns-dev-kr.github.io/
