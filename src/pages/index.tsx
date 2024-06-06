@@ -23,7 +23,7 @@ const Index = (props: IndexProps) => {
         <PostList.Container>
           {recentPosts.map((post, index) => (
             <PostList key={post.id} index={index}>
-              <Link to={`/posts/${post.id}`}>
+              <Link to={`/posts/${post.frontmatter.id}`}>
                 <PostList.Banner alt={post.frontmatter.title}>
                   {post.frontmatter.banner}
                 </PostList.Banner>

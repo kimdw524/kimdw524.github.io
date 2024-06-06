@@ -52,6 +52,7 @@ export const query = graphql`
   query ($id: String!) {
     mdx(id: { eq: $id }) {
       frontmatter {
+        id
         title
         date
         banner {

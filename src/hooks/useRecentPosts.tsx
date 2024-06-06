@@ -9,6 +9,7 @@ interface RecentPosts {
       frontmatter: {
         title: string;
         date: string;
+        id: string;
         banner: ImageDataLike;
         tags: string[];
       };
@@ -26,6 +27,7 @@ const useRecentPosts = () => {
           frontmatter {
             title
             date
+            id
             banner {
               childImageSharp {
                 gatsbyImageData

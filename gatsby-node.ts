@@ -4,9 +4,9 @@ const PostTemplate = path.resolve('./src/templates/PostTemplate.tsx');
 
 const createPosts = async (result, actions) => {
   const posts = result.data.allMdx.nodes;
-  posts.forEach((post: { id: string; frontmatter: { tags: string[] } }) => {
+  posts.forEach((post: { id: string; frontmatter: { id: string; tags: string[] } }) => {
     actions.createPage({
-      path: `/posts/${post.id}`,
+      path: `/posts/${post.frontmatter.id}`,
       component: PostTemplate,
       context: {
         id: post.id,
@@ -47,6 +47,7 @@ export const createPages = async ({ actions, graphql }) => {
         nodes {
           id
           frontmatter {
+            id
             tags
           }
         }

@@ -18,6 +18,7 @@ const fadeIn = keyframes`
     opacity: 0;
     transform: translateY(3rem)
   }
+
   to {
     opacity: 1;
     transform: none;
