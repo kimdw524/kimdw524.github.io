@@ -12,7 +12,7 @@ interface SiteMetadataProps {
 
 const useSiteMetadata = () => {
   const data = useStaticQuery<SiteMetadataProps>(graphql`
-    {
+    query {
       site {
         siteMetadata {
           siteUrl
