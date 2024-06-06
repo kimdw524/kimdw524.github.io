@@ -4,12 +4,12 @@ const PostTemplate = path.resolve('./src/templates/PostTemplate.tsx');
 
 const createPosts = async (result, actions) => {
   const posts = result.data.allMdx.nodes;
-  posts.forEach((post: { id: string; frontmatter: { id: string; tags: string[] } }) => {
+  posts.forEach((post: { frontmatter: { id: number; tags: string[] } }) => {
     actions.createPage({
       path: `/posts/${post.frontmatter.id}`,
       component: PostTemplate,
       context: {
-        id: post.id,
+        id: post.frontmatter.id,
       },
       defer: false,
     });

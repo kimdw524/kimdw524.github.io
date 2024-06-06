@@ -5,11 +5,10 @@ interface RecentPosts {
   allMdx: {
     nodes: {
       excerpt: string;
-      id: string;
       frontmatter: {
         title: string;
         date: string;
-        id: string;
+        id: number;
         banner: ImageDataLike;
         tags: string[];
       };
@@ -23,7 +22,6 @@ const useRecentPosts = () => {
       allMdx(sort: { frontmatter: { date: DESC } }, limit: 5) {
         nodes {
           excerpt(pruneLength: 100)
-          id
           frontmatter {
             title
             date
