@@ -14,6 +14,7 @@ interface PostProps extends PageProps {
         title: string;
         date: string;
         tags: string[];
+        category: string;
         banner: ImageDataLike;
       };
       html: string;
@@ -35,6 +36,7 @@ const PostTemplate = (props: PostProps) => {
       <div css={containerCss}>
         <Post>
           <Post.Title>{data.frontmatter.title}</Post.Title>
+          <Post.Category>{data.frontmatter.category}</Post.Category>
           <Post.Tag>{data.frontmatter.tags}</Post.Tag>
           <Post.Banner alt="banner">{data.frontmatter.banner}</Post.Banner>
           <Post.Body>{data.html}</Post.Body>
@@ -58,12 +60,13 @@ export const query = graphql`
         id
         title
         date
+        tags
+        category
         banner {
           childImageSharp {
             gatsbyImageData
           }
         }
-        tags
       }
       html
     }

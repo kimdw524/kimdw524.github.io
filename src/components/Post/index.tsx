@@ -5,6 +5,7 @@ import Body from './Body';
 import Title from './Title';
 import Tag from './Tag';
 import Banner from './Banner';
+import Category from './Category';
 
 interface PostProps {
   children: ReactNode;
@@ -32,4 +33,4 @@ const Post = (props: PostProps) => {
   return <div css={postCss}>{props.children}</div>;
 };
 
-export default Object.assign(Post, { Title, Body, Tag, Banner });
+export default Object.assign(Post, { Title, Body, Tag, Banner, Category });
