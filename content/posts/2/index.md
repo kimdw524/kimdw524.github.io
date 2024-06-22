@@ -1,5 +1,5 @@
 ---
-id: 1
+id: 2
 title: Atomic, Compound component 두 패턴을 혼합해서 사용해도 될까?
 date: 2024-06-23
 category: 궁금증
