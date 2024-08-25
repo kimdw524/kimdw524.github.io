@@ -1,6 +1,6 @@
 ---
 id: 4
-title: Vanilla Extract 에서 Palette Token 사용할
+title: Vanilla Extract에서 recipe와 테마의 palette color 함께 쓰기
 date: 2024-08-25
 category: 메모
 banner: ./banner.png
