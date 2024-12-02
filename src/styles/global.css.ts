@@ -9,11 +9,21 @@ const pretendard = fontFace({
 });
 
 globalStyle('*', {
+  margin: '0',
+
+  boxSizing: 'border-box',
+
+  color: 'inherit',
   fontFamily: 'inherit',
+  lineHeight: '1.5',
+  wordBreak: 'break-word',
+
+  WebkitTapHighlightColor: 'transparent',
 });
 
 globalStyle('body', {
   backgroundColor: theme.background.normal,
+
   color: theme.text.normal,
   fontSize: '16px',
   fontFamily: pretendard,
