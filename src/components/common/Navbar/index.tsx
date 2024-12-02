@@ -4,6 +4,7 @@ import * as s from './Navbar.css';
 
 import NavbarLogo from './NavbarLogo';
 import NavbarLink from './NavbarLink';
+import NavbarMenu from './NavbarMenu';
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -14,4 +15,4 @@ const Navbar = ({ children, isScrolled }: NavbarProps) => {
   return <nav className={s.container({ isScrolled })}>{children}</nav>;
 };
 
-export default Object.assign(Navbar, { Logo: NavbarLogo, Link: NavbarLink });
+export default Object.assign(Navbar, { Logo: NavbarLogo, Link: NavbarLink, Menu: NavbarMenu });
