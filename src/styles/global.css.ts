@@ -15,6 +15,7 @@ globalStyle('*', {
 
   color: 'inherit',
   fontFamily: 'inherit',
+  textDecoration: 'inherit',
   lineHeight: '1.5',
   wordBreak: 'break-word',
 

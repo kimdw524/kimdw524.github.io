@@ -6,5 +6,7 @@ export default createThemeContract({
   },
   text: {
     normal: null,
+    light: null,
+    hover: null,
   },
 });
