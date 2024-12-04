@@ -1,5 +1,5 @@
 import { Bars3Icon } from '@heroicons/react/24/solid';
-import React, { ReactNode, useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 import * as s from './NavbarMenu.css';
 
