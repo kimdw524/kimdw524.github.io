@@ -2,8 +2,8 @@ import React from 'react';
 
 import * as s from './Navbar.css';
 
-import NavbarLogo from './NavbarLogo';
 import NavbarLink from './NavbarLink';
+import NavbarLogo from './NavbarLogo';
 import NavbarMenu from './NavbarMenu';
 
 interface NavbarProps {
