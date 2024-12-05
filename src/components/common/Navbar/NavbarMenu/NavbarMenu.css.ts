@@ -10,7 +10,7 @@ export const container = style({
   transition: 'all 0s ease',
 
   '@media': {
-    [`screen and (max-width: ${breakpoints.mobile})`]: {
+    [`screen and (max-width: ${breakpoints.sm})`]: {
       display: 'none',
     },
   },
@@ -34,7 +34,7 @@ export const compact = recipe({
     transition: 'transform 0.2s ease, opacity 0.2s ease',
 
     '@media': {
-      [`screen and (max-width: ${breakpoints.mobile})`]: {
+      [`screen and (max-width: ${breakpoints.sm})`]: {
         display: 'flex !important',
       },
     },
@@ -73,7 +73,7 @@ export const toggle = style({
   },
 
   '@media': {
-    [`screen and (max-width: ${breakpoints.mobile})`]: {
+    [`screen and (max-width: ${breakpoints.sm})`]: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
