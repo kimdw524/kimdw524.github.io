@@ -1,5 +1,3 @@
-import React from 'react';
-
 import useIsScrolled from '@/hooks/useIsScrolled';
 
 import Navbar from '@/components/common/Navbar';
