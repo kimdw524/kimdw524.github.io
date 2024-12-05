@@ -1,7 +1,7 @@
 import { createVar } from '@vanilla-extract/css';
 import { recipe } from '@vanilla-extract/recipes';
 
-import { breakpoints } from '@/styles/tokens';
+import theme from '@/styles/theme.css';
 
 export const logoSizeVar = createVar();
 
@@ -10,13 +10,12 @@ export const container = recipe({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    position: 'relative',
 
     height: '5rem',
     padding: '0 1rem',
     borderBottom: '0.0625rem solid',
     borderBottomColor: 'transparent',
-    backgroundColor: '#fff',
+    backgroundColor: theme.background.normal,
 
     transition: 'all 0.2s ease',
   },
