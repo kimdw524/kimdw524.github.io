@@ -28,7 +28,6 @@ export const compact = recipe({
 
     padding: '0.5rem',
     backgroundColor: '#fffffff0',
-    borderTop: '0.0625rem solid #dbdbdb',
     borderBottom: '0.0625rem solid #dbdbdb',
 
     transformOrigin: '0 0',
