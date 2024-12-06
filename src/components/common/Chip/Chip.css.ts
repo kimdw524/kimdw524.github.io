@@ -39,13 +39,13 @@ export const chip = recipe({
       },
 
       outlined: {
-        border: `0.0625rem solid ${colorPalette.blue.A700}`,
-        backgroundColor: '#fff',
+        border: '0',
+        backgroundColor: 'transparent',
 
-        color: colorPalette.blue.A700,
+        color: colorPalette.blueGrey[900],
 
         ':hover': {
-          backgroundColor: colorPalette.blue.A700,
+          backgroundColor: colorPalette.indigo[400],
 
           color: '#fff',
         },
