@@ -18,7 +18,6 @@ interface PageQuery {
         frontmatter: {
           date: string;
           title: string;
-          category: string;
           tags: string[];
           thumbnail: {
             childImageSharp: {
@@ -46,7 +45,6 @@ const IndexPage: React.FC<PageProps> = (data) => {
               to={node.fileAbsolutePath.split('/').at(-2) || ''}
               createdAt={node.frontmatter.date}
               thumbnail={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
-              category={node.frontmatter.category}
             />
           ))}
         </PostList>
@@ -76,7 +74,6 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             tags
-            category
             thumbnail {
               childImageSharp {
                 gatsbyImageData
