@@ -4,10 +4,11 @@ import * as s from './Chip.css';
 
 interface ChipProps {
   children: ReactNode;
+  size?: 'sm' | 'md';
 }
 
-const Chip = ({ children }: ChipProps) => {
-  return <span className={s.chip}>{children}</span>;
+const Chip = ({ children, size = 'sm' }: ChipProps) => {
+  return <span className={s.chip({ size })}>{children}</span>;
 };
 
 export default Chip;
