@@ -1,4 +1,5 @@
 import { Link } from 'gatsby';
+import { GatsbyImage, type IGatsbyImageData } from 'gatsby-plugin-image';
 
 import { formatDate } from '@/utils/time';
 
@@ -6,22 +7,26 @@ import * as s from './PostItem.css';
 
 interface PostItemProps {
   to: string;
-  thumbnail: string;
+  thumbnail: IGatsbyImageData;
   title: string;
   body: string;
   createdAt: string;
+  category: string;
 }
 
-const PostItem = ({ to, thumbnail, title, body, createdAt }: PostItemProps) => {
+const PostItem = ({ to, thumbnail, title, body, createdAt, category }: PostItemProps) => {
   return (
-    <Link to={to} className={s.container} style={{ width: '400px' }}>
-      <div className={s.thumbnailWrapper}>
-        <img src={thumbnail} className={s.thumbnail} alt="thumbnail" loading="lazy" />
+    <Link to={to} className={s.container}>
+      <div className={s.thumbnailWrapper} style={{ backgroundColor: thumbnail.backgroundColor }}>
+        <GatsbyImage image={thumbnail} className={s.thumbnail} alt="thumbnail" />
       </div>
       <div className={s.postInfo}>
         <span className={s.title}>{title}</span>
         <span className={s.body}>{body}</span>
-        <span className={s.date}>{formatDate(createdAt)}</span>
+        <div>
+          <span className={s.category}>{category}</span>
+          <span className={s.date}>{formatDate(createdAt)}</span>
+        </div>
       </div>
     </Link>
   );
