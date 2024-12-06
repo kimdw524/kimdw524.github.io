@@ -29,6 +29,7 @@ export const thumbnailWrapper = style({
 export const postInfo = style({
   display: 'flex',
   flexDirection: 'column',
+  gap: '0.5rem',
 });
 
 export const thumbnail = style({
@@ -56,9 +57,6 @@ export const title = style({
 });
 
 export const body = style({
-  marginTop: '0.5rem',
-  marginBottom: '0.5rem',
-
   color: theme.text.normal,
   fontWeight: '400',
   wordBreak: 'break-word',
@@ -68,4 +66,10 @@ export const date = style({
   color: theme.text.light,
   fontSize: '0.875rem',
   fontWeight: '400',
+});
+
+export const tag = style({
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: '0.5rem',
 });

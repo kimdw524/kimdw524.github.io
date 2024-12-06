@@ -45,6 +45,7 @@ const IndexPage: React.FC<PageProps> = (data) => {
               to={node.fileAbsolutePath.split('/').at(-2) || ''}
               createdAt={node.frontmatter.date}
               thumbnail={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
+              tags={node.frontmatter.tags}
             />
           ))}
         </PostList>
