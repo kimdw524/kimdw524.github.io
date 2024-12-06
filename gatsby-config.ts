@@ -15,6 +15,14 @@ const config: GatsbyConfig = {
     'gatsby-plugin-mdx',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-transformer-remark',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'content',
+        path: './src/content/',
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
