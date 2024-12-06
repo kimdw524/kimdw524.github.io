@@ -11,10 +11,9 @@ interface PostItemProps {
   title: string;
   body: string;
   createdAt: string;
-  category: string;
 }
 
-const PostItem = ({ to, thumbnail, title, body, createdAt, category }: PostItemProps) => {
+const PostItem = ({ to, thumbnail, title, body, createdAt }: PostItemProps) => {
   return (
     <Link to={to} className={s.container}>
       <div className={s.thumbnailWrapper} style={{ backgroundColor: thumbnail.backgroundColor }}>
@@ -23,10 +22,7 @@ const PostItem = ({ to, thumbnail, title, body, createdAt, category }: PostItemP
       <div className={s.postInfo}>
         <span className={s.title}>{title}</span>
         <span className={s.body}>{body}</span>
-        <div>
-          <span className={s.category}>{category}</span>
-          <span className={s.date}>{formatDate(createdAt)}</span>
-        </div>
+        <span className={s.date}>{formatDate(createdAt)}</span>
       </div>
     </Link>
   );

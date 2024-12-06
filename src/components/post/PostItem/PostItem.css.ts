@@ -64,14 +64,6 @@ export const body = style({
   wordBreak: 'break-word',
 });
 
-export const category = style({
-  marginRight: '0.375rem',
-
-  color: theme.text.light,
-  fontSize: '0.875rem',
-  fontWeight: '500',
-});
-
 export const date = style({
   color: theme.text.light,
   fontSize: '0.875rem',
