@@ -4,31 +4,51 @@ import colorPalette from '@/styles/colorPalette';
 
 export const chip = recipe({
   base: {
-    backgroundColor: colorPalette.blueGrey[50],
+    display: 'flex',
+    alignItems: 'center',
 
     wordBreak: 'keep-all',
 
-    transition: 'background-color 0.2s ease',
-
-    ':hover': {
-      backgroundColor: colorPalette.blueGrey[100],
-    },
+    transition: 'all 0.2s ease',
   },
 
   variants: {
     size: {
       sm: {
         padding: '0.375rem 0.5rem',
-        borderRadius: '0.75rem',
+        borderRadius: '0.9375rem',
 
         fontSize: '0.875rem',
       },
 
       md: {
         padding: '0.5rem 0.75rem',
-        borderRadius: '0.875rem',
+        borderRadius: '1.25rem',
 
         fontSize: '1rem',
+      },
+    },
+
+    variant: {
+      contained: {
+        backgroundColor: colorPalette.blueGrey[50],
+
+        ':hover': {
+          backgroundColor: colorPalette.blueGrey[100],
+        },
+      },
+
+      outlined: {
+        border: `0.0625rem solid ${colorPalette.blue.A700}`,
+        backgroundColor: '#fff',
+
+        color: colorPalette.blue.A700,
+
+        ':hover': {
+          backgroundColor: colorPalette.blue.A700,
+
+          color: '#fff',
+        },
       },
     },
   },
