@@ -27,9 +27,9 @@ const PostItem = ({ to, thumbnail, title, body, createdAt, tags }: PostItemProps
         <span className={s.body}>{body}</span>
         <div className={s.tag}>
           {tags.map((tag) => (
-            <Chip key={tag}>
-              <Link to={`/tag/${tag}`}>{tag}</Link>
-            </Chip>
+            <Link key={tag} to={`/tag/${tag}`}>
+              <Chip>{tag}</Chip>
+            </Link>
           ))}
         </div>
         <span className={s.date}>{formatDate(createdAt)}</span>

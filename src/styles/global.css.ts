@@ -16,7 +16,7 @@ globalStyle('*', {
   color: 'inherit',
   fontFamily: 'inherit',
   textDecoration: 'inherit',
-  lineHeight: '1.5',
+  lineHeight: 'inherit',
 
   WebkitTapHighlightColor: 'transparent',
 });
@@ -27,4 +27,5 @@ globalStyle('body', {
   color: theme.text.normal,
   fontSize: '16px',
   fontFamily: pretendard,
+  lineHeight: '1.5',
 });
