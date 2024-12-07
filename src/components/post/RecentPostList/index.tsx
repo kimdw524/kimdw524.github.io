@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import type { IGatsbyImageData } from 'gatsby-plugin-image';
 
+import SectionHeader from '@/components/common/SectionHeader';
 import PostList from '@/components/post//PostList';
 import PostItem from '@/components/post/PostItem';
 
@@ -52,19 +53,22 @@ const RecentPostList = () => {
   `);
 
   return (
-    <PostList>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <PostItem
-          key={node.id}
-          title={node.frontmatter.title}
-          body={node.excerpt}
-          to={node.fileAbsolutePath.split('/').at(-2) || ''}
-          createdAt={node.frontmatter.date}
-          thumbnail={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
-          tags={node.frontmatter.tags}
-        />
-      ))}
-    </PostList>
+    <>
+      <SectionHeader>Posts</SectionHeader>
+      <PostList>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <PostItem
+            key={node.id}
+            title={node.frontmatter.title}
+            body={node.excerpt}
+            to={node.fileAbsolutePath.split('/').at(-2) || ''}
+            createdAt={node.frontmatter.date}
+            thumbnail={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
+            tags={node.frontmatter.tags}
+          />
+        ))}
+      </PostList>
+    </>
   );
 };
 
