@@ -15,6 +15,7 @@ interface RecentPostListQuery {
         frontmatter: {
           date: string;
           title: string;
+          slug: string;
           tags: string[];
           thumbnail: {
             childImageSharp: {
@@ -39,6 +40,7 @@ const RecentPostList = () => {
             frontmatter {
               date(formatString: "MMMM DD, YYYY")
               title
+              slug
               tags
               thumbnail {
                 childImageSharp {
@@ -61,7 +63,7 @@ const RecentPostList = () => {
             key={node.id}
             title={node.frontmatter.title}
             body={node.excerpt}
-            to={node.fileAbsolutePath.split('/').at(-2) || ''}
+            to={node.frontmatter.slug}
             createdAt={node.frontmatter.date}
             thumbnail={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
             tags={node.frontmatter.tags}
