@@ -5,7 +5,7 @@ import { formatDate } from '@/utils/time';
 
 import * as s from './PostItem.css';
 
-import Chip from '@/components/common/Chip';
+import TagList from '@/components/post/TagList';
 
 interface PostItemProps {
   to: string;
@@ -25,13 +25,7 @@ const PostItem = ({ to, thumbnail, title, body, createdAt, tags }: PostItemProps
       <div className={s.postInfo}>
         <span className={s.title}>{title}</span>
         <span className={s.body}>{body}</span>
-        <div className={s.tag}>
-          {tags.map((tag) => (
-            <Link key={tag} to={`/tag/${tag}`}>
-              <Chip>{tag}</Chip>
-            </Link>
-          ))}
-        </div>
+        <TagList tags={tags} />
         <span className={s.date}>{formatDate(createdAt)}</span>
       </div>
     </Link>
