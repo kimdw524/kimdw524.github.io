@@ -46,5 +46,5 @@ export const formatDate = (time: string) => {
   const formattedMonth = month < 10 ? '0' + month : month;
   const formattedDate = day < 10 ? '0' + day : day;
 
-  return `${year}-${formattedMonth}-${formattedDate}`;
+  return `${year}년 ${formattedMonth}월 ${formattedDate}일`;
 };
