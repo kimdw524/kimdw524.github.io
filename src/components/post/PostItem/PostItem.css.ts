@@ -67,13 +67,3 @@ export const date = style({
   fontSize: '0.875rem',
   fontWeight: '400',
 });
-
-export const tag = style({
-  display: 'flex',
-  flexWrap: 'wrap',
-  gap: '0.5rem',
-
-  margin: '0.375rem 0',
-
-  lineHeight: '1',
-});

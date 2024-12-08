@@ -8,8 +8,8 @@ export const lightTheme = createTheme(themeContract, {
     normal: '#fff',
   },
   text: {
-    normal: '#000',
-    light: colorPalette.blueGrey[700],
+    normal: colorPalette.blueGrey[800],
+    light: colorPalette.blueGrey[600],
     hover: colorPalette.blue[500],
   },
 });
