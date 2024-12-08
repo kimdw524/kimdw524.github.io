@@ -10,9 +10,9 @@ interface NavbarLinkProps {
 
 const NavbarLink = ({ children, to }: NavbarLinkProps) => {
   return (
-    <Link to={to} className={s.link}>
+    <a href={to} target="_blank" className={s.link}>
       {children}
-    </Link>
+    </a>
   );
 };
 

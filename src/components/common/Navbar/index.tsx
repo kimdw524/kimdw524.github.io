@@ -9,10 +9,11 @@ import NavbarMenu from './NavbarMenu';
 interface NavbarProps {
   children: React.ReactNode;
   isScrolled: boolean;
+  isVisible?: boolean;
 }
 
-const Navbar = ({ children, isScrolled }: NavbarProps) => {
-  return <nav className={s.container({ isScrolled })}>{children}</nav>;
+const Navbar = ({ children, isScrolled, isVisible = true }: NavbarProps) => {
+  return <nav className={s.container({ isScrolled, isVisible })}>{children}</nav>;
 };
 
 export default Object.assign(Navbar, { Logo: NavbarLogo, Link: NavbarLink, Menu: NavbarMenu });

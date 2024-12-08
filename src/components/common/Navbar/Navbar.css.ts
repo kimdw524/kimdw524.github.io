@@ -17,7 +17,7 @@ export const container = recipe({
     borderBottomColor: 'transparent',
     backgroundColor: theme.background.normal,
 
-    transition: 'all 0.2s ease',
+    transition: 'height 0.2s ease, border-bottom-color 0.2s ease, transform 0.8s ease, opacity 0.4s ease',
   },
 
   variants: {
@@ -25,7 +25,6 @@ export const container = recipe({
       true: {
         height: '4rem',
         borderBottomColor: '#d9e0e7',
-
         vars: {
           [logoSizeVar]: '1.25rem',
         },
@@ -35,6 +34,18 @@ export const container = recipe({
         vars: {
           [logoSizeVar]: '1.5rem',
         },
+      },
+    },
+
+    isVisible: {
+      true: {
+        transform: 'translateY(0)',
+        opacity: 1,
+      },
+
+      false: {
+        transform: 'translateY(-100%)',
+        opacity: 0,
       },
     },
   },
