@@ -10,7 +10,6 @@ interface RecentPostListQuery {
     edges: {
       node: {
         id: string;
-        fileAbsolutePath: string;
         excerpt: string;
         frontmatter: {
           date: string;
@@ -35,10 +34,9 @@ const RecentPostList = () => {
         edges {
           node {
             id
-            fileAbsolutePath
             excerpt(pruneLength: 100)
             frontmatter {
-              date(formatString: "MMMM DD, YYYY")
+              date
               title
               slug
               tags
