@@ -13,8 +13,10 @@ const ToC = ({ contentRef }: ToCProps) => {
     <div className={s.container}>
       <div className={s.toc({ fixed: IsFixed })}>
         {nodes.map((node, index) => (
-          <span key={index} className={s.table({ selected: node.selected, type: node.type })} onClick={node.scroll}>
-            {node.table}
+          <span key={index} className={s.table({ selected: node.selected, type: node.type })}>
+            <a href={`#${node.anchor}`} draggable={false}>
+              {node.table}
+            </a>
           </span>
         ))}
       </div>

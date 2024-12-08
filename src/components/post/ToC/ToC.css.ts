@@ -37,7 +37,6 @@ export const table = recipe({
 
     transition: 'all 0.2s ease',
 
-    cursor: 'pointer',
     userSelect: 'none',
   },
 

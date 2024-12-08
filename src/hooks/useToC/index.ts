@@ -11,7 +11,7 @@ interface TocNode {
   table: string;
   selected: boolean;
   node: Element;
-  scroll: () => void;
+  anchor: string;
 }
 
 const useToC = ({ contentRef, top }: UseTocProps) => {
@@ -27,20 +27,22 @@ const useToC = ({ contentRef, top }: UseTocProps) => {
 
     let currentNodes: TocNode[] = [];
 
+    const getAnchor = (text: string) => {
+      return text.replaceAll(' ', '-') || '';
+    };
+
     const getNodes = () => {
-      content.querySelectorAll('h1, h2, h3').forEach((node) => {
+      content.querySelectorAll('h1, h2, h3').forEach((node, index) => {
+        const anchor = `${index + 1}-${getAnchor(node.textContent || '')}`;
+
         currentNodes.push({
           type: node.tagName.toLowerCase() as TocNode['type'],
           table: node.textContent || '',
           selected: false,
           node,
-          scroll() {
-            node.scrollIntoView({
-              behavior: 'smooth', // 부드러운 스크롤
-              block: 'start', // 요소를 화면 상단에 맞추기
-            });
-          },
+          anchor,
         });
+        node.id = anchor;
       });
 
       setNodes(currentNodes);
