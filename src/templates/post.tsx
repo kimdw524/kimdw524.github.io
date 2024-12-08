@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { formatDate } from '@/utils/time';
 
 import Layout from '@/components/layout/Layout';
+import PostNavigation from '@/components/post/PostNavigation';
 import TagList from '@/components/post/TagList';
 import ToC from '@/components/post/ToC';
 
@@ -21,6 +22,18 @@ interface PostPageQuery {
     };
     html: string;
   };
+  prev: {
+    frontmatter: {
+      slug: string;
+      title: string;
+    };
+  } | null;
+  next: {
+    frontmatter: {
+      slug: string;
+      title: string;
+    };
+  } | null;
 }
 
 const PostPage = ({ data }: { data: PostPageQuery }) => {
@@ -40,6 +53,18 @@ const PostPage = ({ data }: { data: PostPageQuery }) => {
             <ToC contentRef={contentRef} />
           </div>
         </div>
+        <div className={s.navigation}>
+          <div className={s.navigationItem}>
+            {data.prev && (
+              <PostNavigation direction="prev" slug={data.prev.frontmatter.slug} title={data.prev.frontmatter.title} />
+            )}
+          </div>
+          <div className={s.navigationItem}>
+            {data.next && (
+              <PostNavigation direction="next" slug={data.next.frontmatter.slug} title={data.next.frontmatter.title} />
+            )}
+          </div>
+        </div>
       </div>
     </Layout>
   );
@@ -53,7 +78,7 @@ export const Head: HeadFC = () => (
 );
 
 export const query = graphql`
-  query ($id: String) {
+  query ($id: String, $prev: String, $next: String) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
@@ -62,6 +87,18 @@ export const query = graphql`
         date
       }
       html
+    }
+    prev: markdownRemark(id: { eq: $prev }) {
+      frontmatter {
+        slug
+        title
+      }
+    }
+    next: markdownRemark(id: { eq: $next }) {
+      frontmatter {
+        slug
+        title
+      }
     }
   }
 `;
