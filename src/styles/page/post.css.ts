@@ -2,6 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 import colorPalette from '@/styles/colorPalette';
 import theme from '@/styles/theme.css';
+import { breakpoints } from '@/styles/tokens';
 
 export const container = style({
   maxWidth: '50rem',
@@ -40,4 +41,24 @@ export const toc = style({
       display: 'none',
     },
   },
+});
+
+export const navigation = style({
+  display: 'grid',
+  gap: '2rem',
+  gridTemplateColumns: '1fr 1fr',
+
+  marginTop: '2rem',
+  padding: '0 1rem',
+
+  '@media': {
+    [`screen and (max-width: ${breakpoints.xs})`]: {
+      gap: '1rem',
+      gridTemplateColumns: '1fr',
+    },
+  },
+});
+
+export const navigationItem = style({
+  overflow: 'hidden',
 });
