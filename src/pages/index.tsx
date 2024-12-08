@@ -2,8 +2,7 @@ import { type HeadFC, type PageProps } from 'gatsby';
 import * as React from 'react';
 
 import { lightTheme } from '@/styles/lightTheme.css';
-
-import * as s from './index.css';
+import * as s from '@/styles/page/index.css';
 
 import Layout from '@/components/layout/Layout';
 import AllTags from '@/components/post/AllTags';

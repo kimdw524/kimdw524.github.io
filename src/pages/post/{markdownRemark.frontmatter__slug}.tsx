@@ -9,7 +9,7 @@ import ToC from '@/components/post/ToC';
 
 import { lightTheme } from '@/styles/lightTheme.css';
 import { markdown } from '@/styles/markdown.css';
-import * as s from './post.css';
+import * as s from '@/styles/page/post.css';
 
 interface PostPageQuery {
   markdownRemark: {
