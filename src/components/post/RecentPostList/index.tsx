@@ -63,7 +63,7 @@ const RecentPostList = () => {
             key={node.id}
             title={node.frontmatter.title}
             body={node.excerpt}
-            to={node.frontmatter.slug}
+            to={`/post/${node.frontmatter.slug}`}
             createdAt={node.frontmatter.date}
             thumbnail={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
             tags={node.frontmatter.tags}

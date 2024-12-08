@@ -2,11 +2,11 @@ import { fontFace, globalStyle } from '@vanilla-extract/css';
 
 import theme from './theme.css';
 
-import Pretendard from '@/assets/fonts/PretendardVariable.woff2';
+// import Pretendard from '@/assets/fonts/PretendardVariable.woff2';
 
-const pretendard = fontFace({
-  src: `url(${Pretendard})`,
-});
+// const pretendard = fontFace({
+//   src: `url(${Pretendard})`,
+// });
 
 globalStyle('*', {
   margin: '0',
@@ -26,6 +26,6 @@ globalStyle('body', {
 
   color: theme.text.normal,
   fontSize: '16px',
-  fontFamily: pretendard,
+  fontFamily: 'Noto Sans KR, sans-serif',
   lineHeight: '1.5',
 });
