@@ -8,6 +8,7 @@ import TagList from '@/components/post/TagList';
 import ToC from '@/components/post/ToC';
 
 import { lightTheme } from '@/styles/lightTheme.css';
+import { markdown } from '@/styles/markdown.css';
 import * as s from './post.css';
 
 interface PostPageQuery {
@@ -34,7 +35,7 @@ const PostPage = ({ data }: { data: PostPageQuery }) => {
           <TagList tags={data.markdownRemark.frontmatter.tags} />
         </div>
         <div className={s.content} ref={contentRef}>
-          <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+          <div className={markdown} dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
           <div className={s.toc}>
             <ToC contentRef={contentRef} />
           </div>
