@@ -74,6 +74,6 @@ const createTagPage = async ({ createPage, graphql }) => {
 export const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  createPostPage({ createPage, graphql });
-  createTagPage({ createPage, graphql });
+  await createPostPage({ createPage, graphql });
+  await createTagPage({ createPage, graphql });
 };
