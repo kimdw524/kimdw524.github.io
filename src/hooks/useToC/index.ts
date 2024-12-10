@@ -11,7 +11,6 @@ interface TocNode {
   table: string;
   selected: boolean;
   node: Element;
-  anchor: string;
 }
 
 const useToC = ({ contentRef, top }: UseTocProps) => {
@@ -27,22 +26,14 @@ const useToC = ({ contentRef, top }: UseTocProps) => {
 
     let currentNodes: TocNode[] = [];
 
-    const getAnchor = (text: string) => {
-      return text.replaceAll(' ', '-') || '';
-    };
-
     const getNodes = () => {
-      content.querySelectorAll('h1, h2, h3').forEach((node, index) => {
-        const anchor = `${index + 1}-${getAnchor(node.textContent || '')}`;
-
+      content.querySelectorAll('h1, h2, h3').forEach((node) => {
         currentNodes.push({
           type: node.tagName.toLowerCase() as TocNode['type'],
           table: node.textContent || '',
           selected: false,
           node,
-          anchor,
         });
-        node.id = anchor;
       });
 
       setNodes(currentNodes);
