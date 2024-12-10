@@ -48,8 +48,32 @@ const createPostPage = async ({ createPage, graphql }) => {
   }
 };
 
+const createTagPage = async ({ createPage, graphql }) => {
+  const tagTemplate = path.resolve(`src/templates/tag.tsx`);
+  const result = await graphql(`
+    {
+      allMarkdownRemark {
+        group(field: { frontmatter: { tags: SELECT } }) {
+          tag: fieldValue
+        }
+      }
+    }
+  `);
+
+  for (const { tag } of result.data.allMarkdownRemark.group) {
+    createPage({
+      path: `tag/${tag}`,
+      component: tagTemplate,
+      context: {
+        tag: tag,
+      },
+    });
+  }
+};
+
 export const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   createPostPage({ createPage, graphql });
+  createTagPage({ createPage, graphql });
 };
