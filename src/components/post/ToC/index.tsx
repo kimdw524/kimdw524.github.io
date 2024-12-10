@@ -14,7 +14,7 @@ const ToC = ({ contentRef }: ToCProps) => {
       <div className={s.toc({ fixed: IsFixed })}>
         {nodes.map((node, index) => (
           <span key={index} className={s.table({ selected: node.selected, type: node.type })}>
-            <a href={`#${node.anchor}`} draggable={false}>
+            <a href={`#${node.node.id}`} draggable={false}>
               {node.table}
             </a>
           </span>

@@ -4961,6 +4961,7 @@ __metadata:
     gatsby-plugin-mdx: "npm:^5.14.0"
     gatsby-plugin-sharp: "npm:^5.14.0"
     gatsby-plugin-vanilla-extract: "npm:^4.0.2"
+    gatsby-remark-autolink-headers: "npm:^6.14.0"
     gatsby-source-filesystem: "npm:^5.14.0"
     gatsby-transformer-remark: "npm:^6.14.0"
     gatsby-transformer-sharp: "npm:^5.14.0"
@@ -8536,6 +8537,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gatsby-remark-autolink-headers@npm:^6.14.0":
+  version: 6.14.0
+  resolution: "gatsby-remark-autolink-headers@npm:6.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.20.13"
+    github-slugger: "npm:^1.5.0"
+    lodash: "npm:^4.17.21"
+    mdast-util-to-string: "npm:^2.0.0"
+    unist-util-visit: "npm:^2.0.3"
+  peerDependencies:
+    gatsby: ^5.0.0-next
+    react: ^18.0.0 || ^0.0.0
+    react-dom: ^18.0.0 || ^0.0.0
+  checksum: 10c0/c48b78eb2445b74616ecc7bb79acf3a804e5dc585a3fcc5cd009652510189a10c4cc693eb846a693e4c6de8d9dfcd0eeb32f5af462141dce0a078b18fb149234
+  languageName: node
+  linkType: hard
+
 "gatsby-script@npm:^2.14.0":
   version: 2.14.0
   resolution: "gatsby-script@npm:2.14.0"
@@ -8896,7 +8914,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"github-slugger@npm:^1.2.1":
+"github-slugger@npm:^1.2.1, github-slugger@npm:^1.5.0":
   version: 1.5.0
   resolution: "github-slugger@npm:1.5.0"
   checksum: 10c0/116f99732925f939cbfd6f2e57db1aa7e111a460db0d103e3b3f2fce6909d44311663d4542350706cad806345b9892358cc3b153674f88eeae77f43380b3bfca
