@@ -1,7 +1,6 @@
 import path from 'path';
 
-export const createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+const createPostPage = async ({ createPage, graphql }) => {
   const postTemplate = path.resolve(`src/templates/post.tsx`);
   const result = (await graphql(`
     {
@@ -47,6 +46,10 @@ export const createPages = async ({ graphql, actions }) => {
       },
     });
   }
+};
 
-  result.data.allMarkdownRemark.edges.forEach((edge) => {});
+export const createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  createPostPage({ createPage, graphql });
 };
