@@ -33,6 +33,8 @@ export const header = style({
 
 export const content = style({
   position: 'relative',
+
+  marginBottom: '4rem',
 });
 
 export const toc = style({
@@ -61,4 +63,10 @@ export const navigation = style({
 
 export const navigationItem = style({
   overflow: 'hidden',
+});
+
+export const profile = style({
+  padding: '0.75rem',
+  border: `0.0625rem solid ${colorPalette.grey[300]}`,
+  borderRadius: '0.5rem',
 });
