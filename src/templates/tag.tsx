@@ -2,11 +2,9 @@ import { graphql, Link, type HeadFC } from 'gatsby';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 import { lightTheme } from '@/styles/lightTheme.css';
-import * as s from '@/styles/page/index.css';
 
-import SectionHeader from '@/components/common/SectionHeader';
+import Home from '@/components/layout/Home';
 import Layout from '@/components/layout/Layout';
-import AllTags from '@/components/post/AllTags';
 import PostItem from '@/components/post/PostItem';
 import PostList from '@/components/post/PostList';
 
@@ -35,11 +33,14 @@ interface PostListQuery {
 const TagPage = ({ data, pageContext }: { data: PostListQuery; pageContext: { tag: string } }) => {
   return (
     <Layout>
-      <div className={s.container}>
-        <section>
-          <SectionHeader>
+      <Home
+        postHeader={
+          <>
             <Link to="/">Posts</Link> / #{pageContext.tag}
-          </SectionHeader>
+          </>
+        }
+        selectedTag={pageContext.tag}
+        postList={
           <PostList>
             {data.allMarkdownRemark.edges.map(({ node }) => (
               <PostItem
@@ -53,11 +54,8 @@ const TagPage = ({ data, pageContext }: { data: PostListQuery; pageContext: { ta
               />
             ))}
           </PostList>
-        </section>
-        <section className={s.right}>
-          <AllTags selected={pageContext.tag} />
-        </section>
-      </div>
+        }
+      />
     </Layout>
   );
 };
