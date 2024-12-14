@@ -14,7 +14,11 @@ interface AllTagsQuery {
   };
 }
 
-const AllTags = () => {
+interface AllTagsProps {
+  selected?: string;
+}
+
+const AllTags = ({ selected }: AllTagsProps) => {
   const data: AllTagsQuery = useStaticQuery(graphql`
     {
       allMarkdownRemark {
@@ -32,14 +36,18 @@ const AllTags = () => {
       <div className={s.container}>
         {data.allMarkdownRemark.group
           .sort((a, b) => b.totalCount - a.totalCount)
-          .map((tag) => (
-            <Link key={tag.tag} to={`/tag/${tag.tag}`}>
-              <Chip variant="outlined">
-                <span className={s.tag}>{tag.tag}</span>
-                <span className={s.count}>{tag.totalCount}</span>
-              </Chip>
-            </Link>
-          ))}
+          .map((tag) => {
+            const isSelected = tag.tag === selected;
+
+            return (
+              <Link key={tag.tag} to={isSelected ? '/' : `/tag/${tag.tag}`} draggable={false}>
+                <Chip variant="outlined" isSelected={isSelected}>
+                  <span className={s.tag}>{tag.tag}</span>
+                  <span className={s.count}>{tag.totalCount}</span>
+                </Chip>
+              </Link>
+            );
+          })}
       </div>
     </>
   );

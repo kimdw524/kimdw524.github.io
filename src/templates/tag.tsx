@@ -1,4 +1,4 @@
-import { graphql, type HeadFC } from 'gatsby';
+import { graphql, Link, type HeadFC } from 'gatsby';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 import { lightTheme } from '@/styles/lightTheme.css';
@@ -37,7 +37,9 @@ const TagPage = ({ data, pageContext }: { data: PostListQuery; pageContext: { ta
     <Layout>
       <div className={s.container}>
         <section>
-          <SectionHeader>#{pageContext.tag}</SectionHeader>
+          <SectionHeader>
+            <Link to="/">Posts</Link> / #{pageContext.tag}
+          </SectionHeader>
           <PostList>
             {data.allMarkdownRemark.edges.map(({ node }) => (
               <PostItem
@@ -53,7 +55,7 @@ const TagPage = ({ data, pageContext }: { data: PostListQuery; pageContext: { ta
           </PostList>
         </section>
         <section className={s.right}>
-          <AllTags />
+          <AllTags selected={pageContext.tag} />
         </section>
       </div>
     </Layout>

@@ -18,9 +18,9 @@ interface PostItemProps {
 
 const PostItem = ({ to, thumbnail, title, body, createdAt, tags }: PostItemProps) => {
   return (
-    <Link to={to} className={s.container}>
+    <Link to={to} className={s.container} draggable={false}>
       <div className={s.thumbnailWrapper} style={{ backgroundColor: thumbnail.backgroundColor }}>
-        <GatsbyImage image={thumbnail} className={s.thumbnail} alt="thumbnail" />
+        <GatsbyImage image={thumbnail} className={s.thumbnail} alt="thumbnail" draggable={false} />
       </div>
       <div className={s.postInfo}>
         <span className={s.title}>{title}</span>
