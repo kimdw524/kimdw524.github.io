@@ -15,14 +15,16 @@ export const chip = recipe({
   variants: {
     size: {
       sm: {
-        padding: '0.375rem 0.5rem',
-        borderRadius: '0.9375rem',
+        height: '2rem',
+        padding: '0 0.625rem',
+        borderRadius: '1rem',
 
         fontSize: '0.875rem',
       },
 
       md: {
-        padding: '0.5rem 0.75rem',
+        height: '2.5rem',
+        padding: '0 0.875rem',
         borderRadius: '1.25rem',
 
         fontSize: '1rem',
@@ -45,9 +47,21 @@ export const chip = recipe({
         color: colorPalette.blueGrey[900],
 
         ':hover': {
-          backgroundColor: colorPalette.indigo[400],
+          backgroundColor: colorPalette.blueGrey[200],
 
           color: '#fff',
+        },
+      },
+    },
+
+    isSelected: {
+      true: {
+        background: colorPalette.blueGrey[500],
+
+        color: '#fff',
+
+        ':hover': {
+          backgroundColor: colorPalette.blueGrey[500],
         },
       },
     },

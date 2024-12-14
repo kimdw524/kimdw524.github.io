@@ -11,7 +11,6 @@ export const container = style({
   padding: '1rem',
   borderRadius: '0.5rem',
   backgroundColor: colorPalette.grey[100],
-  // borderTop: `0.0625rem solid ${colorPalette.blueGrey[300]}`,
 });
 
 export const tag = style({
