@@ -7,6 +7,7 @@ import Layout from '@/components/layout/Layout';
 import PostNavigation from '@/components/post/PostNavigation';
 import TagList from '@/components/post/TagList';
 import ToC from '@/components/post/ToC';
+import Profile from '@/components/profile/Profile';
 
 import { lightTheme } from '@/styles/lightTheme.css';
 import { markdown } from '@/styles/markdown.css';
@@ -52,6 +53,9 @@ const PostPage = ({ data }: { data: PostPageQuery }) => {
           <div className={s.toc}>
             <ToC contentRef={contentRef} />
           </div>
+        </div>
+        <div className={s.profile}>
+          <Profile />
         </div>
         <div className={s.navigation}>
           <div className={s.navigationItem}>

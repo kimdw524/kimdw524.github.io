@@ -4,7 +4,7 @@ interface SiteMetadata {
   title: string;
   siteUrl: string;
   nickname: string;
-  profileDescription: string;
+  description: string;
   github: string;
 }
 
@@ -16,7 +16,7 @@ const useSiteMetadata = (): SiteMetadata => {
           title
           siteUrl
           nickname
-          profileDescription
+          description
           github
         }
       }

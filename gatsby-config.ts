@@ -5,7 +5,7 @@ const config: GatsbyConfig = {
     title: "kimdw524's blog",
     siteUrl: 'https://kimdw524.github.io',
     nickname: 'kimdw524',
-    profileDescription: '안녕하세요',
+    description: '웹 프론트엔드에 관한 글을 작성합니다.',
     github: 'https://github.com/kimdw524',
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.

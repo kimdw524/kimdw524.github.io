@@ -3,7 +3,6 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import * as s from './AllTags.css';
 
 import Chip from '@/components/common/Chip';
-import SectionHeader from '@/components/common/SectionHeader';
 
 interface AllTagsQuery {
   allMarkdownRemark: {
@@ -31,25 +30,22 @@ const AllTags = ({ selected }: AllTagsProps) => {
   `);
 
   return (
-    <>
-      <SectionHeader>Tags</SectionHeader>
-      <div className={s.container}>
-        {data.allMarkdownRemark.group
-          .sort((a, b) => b.totalCount - a.totalCount)
-          .map((tag) => {
-            const isSelected = tag.tag === selected;
+    <div className={s.container}>
+      {data.allMarkdownRemark.group
+        .sort((a, b) => b.totalCount - a.totalCount)
+        .map((tag) => {
+          const isSelected = tag.tag === selected;
 
-            return (
-              <Link key={tag.tag} to={isSelected ? '/' : `/tag/${tag.tag}`} draggable={false}>
-                <Chip variant="outlined" isSelected={isSelected}>
-                  <span className={s.tag}>{tag.tag}</span>
-                  <span className={s.count}>{tag.totalCount}</span>
-                </Chip>
-              </Link>
-            );
-          })}
-      </div>
-    </>
+          return (
+            <Link key={tag.tag} to={isSelected ? '/' : `/tag/${tag.tag}`} draggable={false}>
+              <Chip variant="outlined" isSelected={isSelected}>
+                <span className={s.tag}>{tag.tag}</span>
+                <span className={s.count}>{tag.totalCount}</span>
+              </Chip>
+            </Link>
+          );
+        })}
+    </div>
   );
 };
 
