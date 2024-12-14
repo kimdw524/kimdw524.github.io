@@ -1,5 +1,7 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 
+import colorPalette from './colorPalette';
+
 export const markdown = style({});
 
 globalStyle(`${markdown} h1`, {
@@ -71,7 +73,7 @@ globalStyle(`${markdown} code`, {
   backgroundColor: '#f6f8fa',
   borderRadius: '3px',
   padding: '0 4px',
-  color: '#d73a49',
+  color: colorPalette.blue[500],
 });
 
 // 링크 스타일
