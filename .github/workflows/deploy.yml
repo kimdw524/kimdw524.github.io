@@ -20,16 +20,6 @@ jobs:
         run: |
           corepack enable
 
-      - name: Cache Yarn and node_modules
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.yarn/cache
-            node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
       - name: Install dependencies
         run: yarn install
 
@@ -38,8 +28,8 @@ jobs:
         env:
           NODE_ENV: production
 
-      - uses: peaceiris/actions-gh-pages@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./public
+      - uses: enriikke/gatsby-gh-pages-action@v2
+        with:
+          access-token: ${{ secrets.ACTIONS_TOKEN }}
+          deploy-branch: gh-pages
+          skip-publish: false
