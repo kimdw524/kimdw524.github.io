@@ -19,13 +19,13 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
 
-      # - name: Install dependencies
-      #   run: yarn install
+      - name: Install dependencies
+        run: yarn install
 
-      # - name: Build
-      #   run: yarn build
-      #   env:
-      #     NODE_ENV: production
+      - name: Build
+        run: yarn build
+        env:
+          NODE_ENV: production
 
       - uses: enriikke/gatsby-gh-pages-action@v2
         with:
