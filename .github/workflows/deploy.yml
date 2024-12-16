@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -17,16 +17,15 @@ jobs:
           node-version: '22.x'
 
       - name: Enable Corepack
-        run: |
-          corepack enable
+        run: corepack enable
 
-      - name: Install dependencies
-        run: yarn install
+      # - name: Install dependencies
+      #   run: yarn install
 
-      - name: Build
-        run: yarn build
-        env:
-          NODE_ENV: production
+      # - name: Build
+      #   run: yarn build
+      #   env:
+      #     NODE_ENV: production
 
       - uses: enriikke/gatsby-gh-pages-action@v2
         with:
