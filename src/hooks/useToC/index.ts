@@ -24,9 +24,9 @@ const useToC = ({ contentRef, top }: UseTocProps) => {
       return;
     }
 
-    let currentNodes: TocNode[] = [];
-
     const getNodes = () => {
+      const currentNodes: TocNode[] = [];
+
       content.querySelectorAll('h1, h2, h3').forEach((node) => {
         currentNodes.push({
           type: node.tagName.toLowerCase() as TocNode['type'],
@@ -39,38 +39,52 @@ const useToC = ({ contentRef, top }: UseTocProps) => {
       setNodes(currentNodes);
     };
 
-    const getCurrentTable = throttle(() => {
-      for (let i = 1; i < currentNodes.length; i++) {
-        const y = Math.round(currentNodes[i].node.getBoundingClientRect().y);
+    getNodes();
+  }, [contentRef]);
+
+  useEffect(() => {
+    const content = contentRef.current;
+
+    if (!content) {
+      return;
+    }
+
+    const selectTable = (select: number) => {
+      setNodes((prev) =>
+        prev.map((node, index) => {
+          return { ...node, selected: index === select };
+        }),
+      );
+    };
+
+    const updateCurrentTable = () => {
+      for (let i = nodes.length - 1; i >= 0; i--) {
+        const y = Math.round(nodes[i].node.getBoundingClientRect().y);
 
         if (y > 0) {
-          currentNodes = currentNodes.reduce((acc, cur: TocNode, index) => {
-            acc.push({ ...cur, selected: index === i - 1 } as TocNode);
-            return acc;
-          }, [] as TocNode[]);
-
-          setNodes(currentNodes);
-          break;
+          continue;
         }
-      }
-    }, 100);
 
-    const handleScroll = () => {
+        selectTable(i);
+        return;
+      }
+
+      selectTable(0);
+    };
+
+    const handleScroll = throttle(() => {
       const y = content.getBoundingClientRect().y;
 
       setIsFixed(y < top);
-      getCurrentTable();
-    };
-
-    getNodes();
-    handleScroll();
+      updateCurrentTable();
+    }, 100);
 
     window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [contentRef]);
+  }, [contentRef, nodes]);
 
   return { IsFixed, nodes };
 };
