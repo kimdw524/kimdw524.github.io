@@ -49,34 +49,11 @@ globalStyle(`${markdown} h6`, {
   marginBottom: '8px',
 });
 
-// 문단 스타일
 globalStyle(`${markdown} p`, {
   marginTop: '16px',
   marginBottom: '16px',
 });
 
-// 코드 블록 스타일
-globalStyle(`${markdown} pre`, {
-  backgroundColor: '#f6f8fa',
-  borderRadius: '3px',
-  padding: '16px',
-  fontFamily: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace',
-  fontSize: '14px',
-  color: '#24292f',
-  overflowX: 'auto',
-  whiteSpace: 'pre-wrap',
-});
-
-globalStyle(`${markdown} code`, {
-  fontFamily: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace',
-  fontSize: '14px',
-  backgroundColor: '#f6f8fa',
-  borderRadius: '3px',
-  padding: '0 4px',
-  color: colorPalette.blue[500],
-});
-
-// 링크 스타일
 globalStyle(`${markdown} a`, {
   color: '#0366d6',
   textDecoration: 'none',
@@ -86,7 +63,6 @@ globalStyle(`${markdown} a:hover`, {
   textDecoration: 'underline',
 });
 
-// 목록 스타일
 globalStyle(`${markdown} ul`, {
   paddingLeft: '20px',
   marginTop: 0,
@@ -107,7 +83,6 @@ globalStyle(`${markdown} ol li`, {
   marginBottom: '8px',
 });
 
-// 인용문 스타일
 globalStyle(`${markdown} blockquote`, {
   borderLeft: '4px solid #dfe2e5',
   paddingLeft: '16px',
@@ -117,7 +92,6 @@ globalStyle(`${markdown} blockquote`, {
   fontStyle: 'italic',
 });
 
-// 테이블 스타일
 globalStyle(`${markdown} table`, {
   width: '100%',
   marginTop: '16px',
@@ -139,11 +113,154 @@ globalStyle(`${markdown} td`, {
   textAlign: 'left',
 });
 
-// 이미지 스타일
 globalStyle(`${markdown} img`, {
   maxWidth: '100%',
   height: 'auto',
   borderRadius: '3px',
   marginTop: '16px',
   marginBottom: '16px',
+});
+
+// PrismJS
+
+globalStyle("code[class*='language-'], pre[class*='language-']", {
+  color: '#657b83',
+  fontFamily: "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
+  textAlign: 'left',
+  whiteSpace: 'pre',
+  wordSpacing: 'normal',
+  wordBreak: 'normal',
+  wordWrap: 'normal',
+  lineHeight: 1.5,
+  MozTabSize: 2,
+  OTabSize: 2,
+  tabSize: 2,
+  WebkitHyphens: 'none',
+  MozHyphens: 'none',
+  msHyphens: 'none',
+  hyphens: 'none',
+});
+
+globalStyle(
+  "pre[class*='language-']::-moz-selection, pre[class*='language-'] ::-moz-selection, code[class*='language-']::-moz-selection, code[class*='language-'] ::-moz-selection",
+  {
+    background: '#073642',
+  },
+);
+
+globalStyle(
+  "pre[class*='language-']::selection, pre[class*='language-'] ::selection, code[class*='language-']::selection, code[class*='language-'] ::selection",
+  {
+    background: '#073642',
+  },
+);
+
+globalStyle("pre[class*='language-']", {
+  display: 'flex',
+  flexDirection: 'row-reverse',
+
+  margin: '0.5em 0',
+  overflow: 'auto',
+  borderRadius: '0.3em',
+});
+
+globalStyle(":not(pre) > code[class*='language-'], pre[class*='language-']", {
+  borderRadius: '0.5rem',
+  backgroundColor: colorPalette.grey[100],
+});
+
+globalStyle(":not(pre) > code[class*='language-']", {
+  padding: '0.1em',
+  borderRadius: '0.3em',
+});
+
+globalStyle('.token.comment, .token.prolog, .token.doctype, .token.cdata', {
+  color: '#93a1a1',
+});
+
+globalStyle('.token.punctuation', {
+  color: '#586e75',
+});
+
+globalStyle('.namespace', {
+  opacity: 0.7,
+});
+
+globalStyle(
+  '.token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted',
+  {
+    color: '#268bd2',
+  },
+);
+
+globalStyle(
+  '.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.url, .token.inserted',
+  {
+    color: '#2aa198',
+  },
+);
+
+globalStyle('.token.entity', {
+  color: '#657b83',
+  background: '#eee8d5',
+});
+
+globalStyle('.token.atrule, .token.attr-value, .token.keyword', {
+  color: '#859900',
+});
+
+globalStyle('.token.function', {
+  color: '#b58900',
+});
+
+globalStyle('.token.regex, .token.important, .token.variable', {
+  color: '#cb4b16',
+});
+
+globalStyle('.token.important, .token.bold', {
+  fontWeight: 'bold',
+});
+
+globalStyle('.token.italic', {
+  fontStyle: 'italic',
+});
+
+globalStyle('.token.entity', {
+  cursor: 'help',
+});
+
+globalStyle('pre.line-numbers', {
+  position: 'relative',
+
+  counterReset: 'linenumber',
+});
+
+globalStyle('pre.line-numbers > code', {
+  flex: '1 1 auto',
+  position: 'relative',
+
+  padding: '0 1rem',
+});
+
+globalStyle('.line-numbers .line-numbers-rows', {
+  flex: '0 0 auto',
+
+  padding: '0 0.625rem',
+  borderRight: `0.0625rem solid ${colorPalette.blueGrey[100]}`,
+
+  pointerEvents: 'none',
+  userSelect: 'none',
+});
+
+globalStyle('.line-numbers-rows > span', {
+  pointerEvents: 'none',
+  display: 'block',
+  counterIncrement: 'linenumber',
+});
+
+globalStyle('.line-numbers-rows > span:before', {
+  content: 'counter(linenumber)',
+  color: colorPalette.blueGrey[400],
+  display: 'block',
+  textAlign: 'right',
 });
