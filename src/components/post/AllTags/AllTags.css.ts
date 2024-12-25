@@ -7,6 +7,7 @@ export const container = style({
   gap: '0.5rem',
   flexWrap: 'wrap',
 
+  width: '100%',
   marginTop: '1rem',
   padding: '1rem',
   borderRadius: '0.5rem',
