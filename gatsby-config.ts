@@ -33,6 +33,30 @@ const config: GatsbyConfig = {
               elements: ['h1', 'h2', 'h3'],
             },
           },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: false,
+              languageExtensions: [
+                {
+                  language: 'superscript',
+                  extend: 'javascript',
+                  definition: {
+                    superscript_types: /(SuperType)/,
+                  },
+                  insertBefore: {
+                    function: {
+                      superscript_keywords: /(superif|superelse)/,
+                    },
+                  },
+                },
+              ],
+              escapeEntities: {},
+            },
+          },
         ],
       },
     },
