@@ -77,3 +77,12 @@ export const createPages = async ({ graphql, actions }) => {
   await createPostPage({ createPage, graphql });
   await createTagPage({ createPage, graphql });
 };
+
+export const onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
+  const config = getConfig();
+  const miniCssExtractPlugin = config.plugins.find((plugin) => plugin.constructor.name === 'MiniCssExtractPlugin');
+  if (miniCssExtractPlugin) {
+    miniCssExtractPlugin.options.ignoreOrder = true;
+  }
+  actions.replaceWebpackConfig(config);
+};
