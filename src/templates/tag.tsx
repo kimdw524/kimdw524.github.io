@@ -1,36 +1,18 @@
-import { graphql, Link, type HeadFC } from 'gatsby';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { graphql, Link, PageProps } from 'gatsby';
 
-import { lightTheme } from '@/styles/lightTheme.css';
-
+import SEO from '@/components/common/SEO';
 import Home from '@/components/layout/Home';
 import Layout from '@/components/layout/Layout';
 import PostItem from '@/components/post/PostItem';
 import PostList from '@/components/post/PostList';
 
-interface PostListQuery {
-  allMarkdownRemark: {
-    edges: {
-      node: {
-        id: string;
-        excerpt: string;
-        frontmatter: {
-          date: string;
-          title: string;
-          slug: string;
-          tags: string[];
-          thumbnail: {
-            childImageSharp: {
-              gatsbyImageData: IGatsbyImageData;
-            };
-          };
-        };
-      };
-    }[];
+interface TagPageProps extends PageProps<Queries.TagPageQuery> {
+  pageContext: {
+    tag: string;
   };
 }
 
-const TagPage = ({ data, pageContext }: { data: PostListQuery; pageContext: { tag: string } }) => {
+const TagPage = ({ data, pageContext }: TagPageProps) => {
   return (
     <Layout>
       <Home
@@ -45,12 +27,12 @@ const TagPage = ({ data, pageContext }: { data: PostListQuery; pageContext: { ta
             {data.allMarkdownRemark.edges.map(({ node }) => (
               <PostItem
                 key={node.id}
-                title={node.frontmatter.title}
-                body={node.excerpt}
-                to={`/post/${node.frontmatter.slug}`}
-                createdAt={node.frontmatter.date}
-                thumbnail={node.frontmatter.thumbnail.childImageSharp.gatsbyImageData}
-                tags={node.frontmatter.tags}
+                title={node.frontmatter?.title || ''}
+                body={node.excerpt || ''}
+                to={`/post/${node.frontmatter?.slug}`}
+                createdAt={node.frontmatter?.date || ''}
+                thumbnail={node.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData}
+                tags={(node.frontmatter?.tags || []) as string[]}
               />
             ))}
           </PostList>
@@ -62,15 +44,14 @@ const TagPage = ({ data, pageContext }: { data: PostListQuery; pageContext: { ta
 
 export default TagPage;
 
-export const Head: HeadFC = () => (
+export const Head = ({ pageContext }: { pageContext: TagPageProps['pageContext'] }) => (
   <>
-    <title>Home Page</title>
-    <body className={lightTheme} />
+    <SEO title={`${pageContext.tag} - kimdw524's blog`} />
   </>
 );
 
 export const query = graphql`
-  query ($tag: String) {
+  query TagPage($tag: String) {
     allMarkdownRemark(filter: { frontmatter: { tags: { in: [$tag] } } }, sort: { frontmatter: { date: DESC } }) {
       edges {
         node {

@@ -1,9 +1,16 @@
+import type { Actions, CreatePagesArgs, GatsbyNode } from 'gatsby';
 import path from 'path';
 
-const createPostPage = async ({ createPage, graphql }) => {
+const createPostPage = async ({
+  graphql,
+  createPage,
+}: {
+  graphql: CreatePagesArgs['graphql'];
+  createPage: Actions['createPage'];
+}) => {
   const postTemplate = path.resolve(`src/templates/post.tsx`);
   const result = (await graphql(`
-    {
+    query Post {
       allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
         edges {
           node {
@@ -48,10 +55,16 @@ const createPostPage = async ({ createPage, graphql }) => {
   }
 };
 
-const createTagPage = async ({ createPage, graphql }) => {
+const createTagPage = async ({
+  graphql,
+  createPage,
+}: {
+  graphql: CreatePagesArgs['graphql'];
+  createPage: Actions['createPage'];
+}) => {
   const tagTemplate = path.resolve(`src/templates/tag.tsx`);
-  const result = await graphql(`
-    {
+  const { data }: { data?: Queries.TagQuery } = await graphql(`
+    query Tag {
       allMarkdownRemark {
         group(field: { frontmatter: { tags: SELECT } }) {
           tag: fieldValue
@@ -60,7 +73,11 @@ const createTagPage = async ({ createPage, graphql }) => {
     }
   `);
 
-  for (const { tag } of result.data.allMarkdownRemark.group) {
+  if (!data?.allMarkdownRemark.group) {
+    return;
+  }
+
+  for (const { tag } of data.allMarkdownRemark.group) {
     createPage({
       path: `tag/${tag}`,
       component: tagTemplate,
@@ -71,16 +88,18 @@ const createTagPage = async ({ createPage, graphql }) => {
   }
 };
 
-export const createPages = async ({ graphql, actions }) => {
+export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  await createPostPage({ createPage, graphql });
-  await createTagPage({ createPage, graphql });
+  await createPostPage({ graphql, createPage });
+  await createTagPage({ graphql, createPage });
 };
 
-export const onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ actions, getConfig }) => {
   const config = getConfig();
-  const miniCssExtractPlugin = config.plugins.find((plugin) => plugin.constructor.name === 'MiniCssExtractPlugin');
+  const miniCssExtractPlugin = config.plugins.find(
+    (plugin: { constructor: { name: string } }) => plugin.constructor.name === 'MiniCssExtractPlugin',
+  );
   if (miniCssExtractPlugin) {
     miniCssExtractPlugin.options.ignoreOrder = true;
   }

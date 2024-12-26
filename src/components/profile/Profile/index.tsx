@@ -14,7 +14,7 @@ const Profile = () => {
       <div className={s.nickname}>@{nickname}</div>
       <div className={s.description}>{description}</div>
       <div className={s.links}>
-        <ProfileLink to={github}>
+        <ProfileLink to={github || ''}>
           <VscGithubInverted size="1.75rem" />
         </ProfileLink>
       </div>
