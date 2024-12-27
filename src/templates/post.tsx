@@ -66,7 +66,7 @@ const PostPage = ({ data }: PostPageProps) => {
 
 export const Head = ({ data }: PostPageProps) => (
   <>
-    <SEO title={`${data.markdownRemark?.frontmatter?.title} - kimdw524's blog`} />
+    <SEO title={data.markdownRemark?.frontmatter?.title || ''} />
   </>
 );
 

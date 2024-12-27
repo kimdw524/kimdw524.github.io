@@ -1,8 +1,7 @@
-import { type HeadFC, type PageProps } from 'gatsby';
+import { type PageProps } from 'gatsby';
 import * as React from 'react';
 
-import { lightTheme } from '@/styles/lightTheme.css';
-
+import SEO from '@/components/common/SEO';
 import Home from '@/components/layout/Home';
 import Layout from '@/components/layout/Layout';
 import RecentPostList from '@/components/post/RecentPostList';
@@ -17,9 +16,8 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => (
+export const Head = () => (
   <>
-    <title>Home Page</title>
-    <body className={lightTheme} />
+    <SEO />
   </>
 );

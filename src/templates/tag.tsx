@@ -46,7 +46,7 @@ export default TagPage;
 
 export const Head = ({ pageContext }: { pageContext: TagPageProps['pageContext'] }) => (
   <>
-    <SEO title={`${pageContext.tag} - kimdw524's blog`} />
+    <SEO title={pageContext.tag} />
   </>
 );
 
