@@ -9,7 +9,7 @@ const createPostPage = async ({
   createPage: Actions['createPage'];
 }) => {
   const postTemplate = path.resolve(`src/templates/post.tsx`);
-  const result = (await graphql(`
+  const { data }: { data?: Queries.PostQuery } = await graphql(`
     query Post {
       allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
         edges {
@@ -22,29 +22,20 @@ const createPostPage = async ({
         }
       }
     }
-  `)) as {
-    data: {
-      allMarkdownRemark: {
-        edges: {
-          node: {
-            frontmatter: {
-              slug: string;
-            };
-            id: string;
-          };
-        }[];
-      };
-    };
-  };
+  `);
 
-  const edges = result.data.allMarkdownRemark.edges;
+  const edges = data?.allMarkdownRemark.edges;
+
+  if (!edges) {
+    return;
+  }
 
   for (let i = 0; i < edges.length; i++) {
     const prev = i > 0 ? edges[i - 1] : undefined;
     const next = i < edges.length - 1 ? edges[i + 1] : undefined;
 
     createPage({
-      path: `post/${edges[i].node.frontmatter.slug}`,
+      path: `post/${edges[i].node.frontmatter?.slug}`,
       component: postTemplate,
       context: {
         id: edges[i].node.id,

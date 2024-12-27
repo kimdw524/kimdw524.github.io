@@ -11,13 +11,16 @@ const config: GatsbyConfig = {
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
   // Learn more at: https://gatsby.dev/graphql-typegen
-  graphqlTypegen: true,
+  graphqlTypegen: {
+    typesOutputPath: 'gatsby-types.d.ts',
+    documentSearchPaths: ['./gatsby-node.ts'],
+  },
   plugins: [
-    'gatsby-plugin-vanilla-extract',
     'gatsby-plugin-image',
     'gatsby-plugin-mdx',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-vanilla-extract',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -34,7 +37,7 @@ const config: GatsbyConfig = {
             },
           },
           {
-            resolve: `gatsby-remark-prismjs`,
+            resolve: 'gatsby-remark-prismjs',
             options: {
               inlineCodeMarker: null,
               aliases: {},
