@@ -5,57 +5,100 @@ import colorPalette from './colorPalette';
 export const markdown = style({});
 
 globalStyle(`${markdown} h1`, {
-  fontWeight: 600,
-  fontSize: '32px',
-  borderBottom: '2px solid #e1e4e8',
-  paddingBottom: '6px',
-  marginTop: '24px',
-  marginBottom: '8px',
+  borderBottom: '0.125rem solid #eaeaea',
+  fontSize: '2rem',
+  fontWeight: '700',
+  margin: '1rem 0',
+  paddingBottom: '0.375rem',
 });
 
 globalStyle(`${markdown} h2`, {
-  fontWeight: 600,
-  fontSize: '28px',
-  marginTop: '24px',
-  marginBottom: '8px',
+  fontSize: '1.75rem',
+  fontWeight: '600',
+  margin: '0.875rem 0',
 });
 
 globalStyle(`${markdown} h3`, {
-  fontWeight: 600,
-  fontSize: '24px',
-  marginTop: '24px',
-  marginBottom: '8px',
+  fontSize: '1.5rem',
+  fontWeight: '500',
+  margin: '0.75rem 0',
 });
 
-globalStyle(`${markdown} h4`, {
-  fontWeight: 600,
-  fontSize: '20px',
-  marginTop: '24px',
-  marginBottom: '8px',
+globalStyle(`${markdown} h4, ${markdown} h5, ${markdown} h6`, {
+  fontSize: '1.25rem',
+  fontWeight: '500',
+  margin: '0.5rem',
 });
 
-globalStyle(`${markdown} h5`, {
-  fontWeight: 600,
-  fontSize: '16px',
-  marginTop: '24px',
-  marginBottom: '8px',
-});
-
-globalStyle(`${markdown} h6`, {
-  fontWeight: 600,
-  fontSize: '14px',
-  color: '#6a737d',
-  marginTop: '24px',
-  marginBottom: '8px',
-});
-
+// Paragraphs
 globalStyle(`${markdown} p`, {
-  marginTop: '16px',
-  marginBottom: '16px',
+  margin: '0.5rem 0',
 });
 
+// Blockquotes
+globalStyle(`${markdown} blockquote`, {
+  margin: '1rem 0',
+  padding: '0.5rem 1rem',
+  backgroundColor: '#f9f9f9',
+  borderLeft: '0.25rem solid #00aaff',
+  color: '#555',
+  fontStyle: 'italic',
+});
+
+// Lists
+globalStyle(`${markdown} ul, ${markdown} ol`, {
+  margin: '1rem 0',
+  paddingLeft: '1.5em',
+});
+
+globalStyle(`${markdown} ul li`, {
+  listStyleType: 'disc',
+  margin: '0.5rem 0',
+});
+
+globalStyle(`${markdown} ol li`, {
+  listStyleType: 'decimal',
+  margin: '0.5rem 0',
+});
+
+// Code Blocks
+globalStyle(`${markdown} pre`, {
+  margin: '1rem 0',
+  padding: '1rem',
+  backgroundColor: '#282c34',
+  color: '#fff',
+  borderRadius: '0.5rem',
+  overflowX: 'auto',
+});
+
+globalStyle(`${markdown} hr`, {
+  border: 'none',
+  borderTop: '1px solid #eaeaea',
+  margin: '2rem 0',
+  height: '0.0125rem',
+  backgroundColor: '#eaeaea',
+});
+
+globalStyle(`${markdown} table`, {
+  width: '100%',
+  borderCollapse: 'collapse',
+  margin: 'r1em 0',
+});
+
+globalStyle(`${markdown} table th, ${markdown} table td`, {
+  border: '0.0625rem solid #ddd',
+  padding: '0.5rem 1rem',
+  textAlign: 'left',
+});
+
+globalStyle(`${markdown} table th`, {
+  backgroundColor: '#f5f5f5',
+  fontWeight: 'bold',
+});
+
+// Links
 globalStyle(`${markdown} a`, {
-  color: '#0366d6',
+  color: '#00aaff',
   textDecoration: 'none',
 });
 
@@ -63,68 +106,16 @@ globalStyle(`${markdown} a:hover`, {
   textDecoration: 'underline',
 });
 
-globalStyle(`${markdown} ul`, {
-  paddingLeft: '20px',
-  marginTop: 0,
-  marginBottom: '16px',
-});
-
-globalStyle(`${markdown} ul li`, {
-  marginBottom: '8px',
-});
-
-globalStyle(`${markdown} ol`, {
-  paddingLeft: '20px',
-  marginTop: 0,
-  marginBottom: '16px',
-});
-
-globalStyle(`${markdown} ol li`, {
-  marginBottom: '8px',
-});
-
-globalStyle(`${markdown} blockquote`, {
-  borderLeft: '4px solid #dfe2e5',
-  paddingLeft: '16px',
-  marginLeft: 0,
-  marginRight: 0,
-  color: '#6a737d',
-  fontStyle: 'italic',
-});
-
-globalStyle(`${markdown} table`, {
-  width: '100%',
-  marginTop: '16px',
-  marginBottom: '16px',
-  borderCollapse: 'collapse',
-});
-
-globalStyle(`${markdown} th`, {
-  backgroundColor: '#f6f8fa',
-  fontWeight: 'bold',
-  padding: '8px',
-  border: '1px solid #dfe2e5',
-  textAlign: 'left',
-});
-
-globalStyle(`${markdown} td`, {
-  padding: '8px',
-  border: '1px solid #dfe2e5',
-  textAlign: 'left',
-});
-
+// Images
 globalStyle(`${markdown} img`, {
   maxWidth: '100%',
-  height: 'auto',
-  borderRadius: '3px',
-  marginTop: '16px',
-  marginBottom: '16px',
+  margin: '1rem 0',
 });
 
 // PrismJS
 
 globalStyle("code[class*='language-'], pre[class*='language-']", {
-  color: '#657b83',
+  color: '#ff5f5f',
   textAlign: 'left',
   whiteSpace: 'pre',
   wordSpacing: 'normal',
@@ -169,8 +160,9 @@ globalStyle(":not(pre) > code[class*='language-'], pre[class*='language-']", {
 });
 
 globalStyle(":not(pre) > code[class*='language-']", {
-  padding: '0.1em',
+  padding: '0.25rem',
   borderRadius: '0.3em',
+  fontSize: '0.875rem',
 });
 
 globalStyle('.token.comment, .token.prolog, .token.doctype, .token.cdata', {
