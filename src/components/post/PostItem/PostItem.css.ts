@@ -13,33 +13,10 @@ export const container = style({
   userSelect: 'none',
 });
 
-export const thumbnailWrapper = style({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  flex: '0 0 auto',
-  overflow: 'hidden',
-
-  width: '100%',
-  height: 'auto',
-  aspectRatio: '16 / 9',
-  borderRadius: '0.5rem',
-});
-
 export const postInfo = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '0.5rem',
-});
-
-export const thumbnail = style({
-  transition: 'transform 0.3s ease',
-
-  selectors: {
-    [`${container}:hover &`]: {
-      transform: 'scale(1.1)',
-    },
-  },
 });
 
 export const title = style({

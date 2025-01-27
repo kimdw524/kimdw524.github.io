@@ -23,6 +23,10 @@ export const body = style({
   gap: '2rem',
 });
 
+export const left = style({
+  flex: '1 1 auto',
+});
+
 export const right = style({
   display: 'flex',
   flexDirection: 'column',
