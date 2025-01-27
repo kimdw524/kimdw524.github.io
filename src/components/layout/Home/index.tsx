@@ -19,7 +19,7 @@ const Home = ({ postHeader = 'Post', selectedTag, postList }: HomeProps) => {
         <Profile />
       </div>
       <div className={s.body}>
-        <section>
+        <section className={s.left}>
           <SectionHeader>{postHeader}</SectionHeader>
           {postList}
         </section>
