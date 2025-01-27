@@ -1,7 +1,6 @@
 ---
 date: '2024-12-30 02:41:00'
 title: '버튼을 클릭하면 즉시 recalculate style이 발생한다.'
-thumbnail: './thumbnail.png'
 slug: 'click-recalculate-style'
 tags: ['브라우저']
 ---

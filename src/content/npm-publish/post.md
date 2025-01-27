@@ -1,16 +1,13 @@
 ---
 date: '2025-01-06 02:14:00'
 title: 'npm 라이브러리 개발부터 배포까지'
-thumbnail: './thumbnail.png'
 slug: 'npm-publish'
 tags: ['JavaScript']
 ---
 
 `pnpm` + `TypeScript` 환경에서 React 라이브러리를 개발하고 배포까지 하는 과정
 
-`
-부족한 내용이 많아 수정 중인 글입니다.
-`
+`부족한 내용이 많아 수정 중인 글입니다.`
 
 # 프로젝트 만들기
 
@@ -63,7 +60,7 @@ $ pnpm add -D eslint typescript @babel/preset-env ...
 ### files
 
 - npm에 배포할 파일을 명시할 수 있다. `package.json` 은 명시하지 않아도 함께 배포된다.
-- `files` 프로퍼티가 정의되어 있으면, `types` 프로퍼티는 무시된다. 
+- `files` 프로퍼티가 정의되어 있으면, `types` 프로퍼티는 무시된다.
 
 # tsconfig.json 설정
 

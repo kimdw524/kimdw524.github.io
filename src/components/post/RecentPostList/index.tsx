@@ -16,11 +16,6 @@ const RecentPostList = () => {
               title
               slug
               tags
-              thumbnail {
-                childImageSharp {
-                  gatsbyImageData
-                }
-              }
             }
           }
         }
@@ -37,7 +32,6 @@ const RecentPostList = () => {
           body={node.excerpt || ''}
           to={`/post/${node.frontmatter?.slug}`}
           createdAt={node.frontmatter?.date || ''}
-          thumbnail={node.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData}
           tags={(node.frontmatter?.tags || []) as string[]}
         />
       ))}

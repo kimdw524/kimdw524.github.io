@@ -31,7 +31,6 @@ const TagPage = ({ data, pageContext }: TagPageProps) => {
                 body={node.excerpt || ''}
                 to={`/post/${node.frontmatter?.slug}`}
                 createdAt={node.frontmatter?.date || ''}
-                thumbnail={node.frontmatter?.thumbnail?.childImageSharp?.gatsbyImageData}
                 tags={(node.frontmatter?.tags || []) as string[]}
               />
             ))}
@@ -62,11 +61,6 @@ export const query = graphql`
             title
             slug
             tags
-            thumbnail {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
           }
         }
       }
