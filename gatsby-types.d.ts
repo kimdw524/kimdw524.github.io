@@ -1421,7 +1421,6 @@ type MarkdownRemarkFrontmatter = {
   readonly date: Maybe<Scalars['Date']>;
   readonly slug: Maybe<Scalars['String']>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-  readonly thumbnail: Maybe<File>;
   readonly title: Maybe<Scalars['String']>;
 };
 
@@ -1437,7 +1436,6 @@ type MarkdownRemarkFrontmatterFieldSelector = {
   readonly date: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly tags: InputMaybe<FieldSelectorEnum>;
-  readonly thumbnail: InputMaybe<FileFieldSelector>;
   readonly title: InputMaybe<FieldSelectorEnum>;
 };
 
@@ -1445,7 +1443,6 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly tags: InputMaybe<StringQueryOperatorInput>;
-  readonly thumbnail: InputMaybe<FileFilterInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -1453,7 +1450,6 @@ type MarkdownRemarkFrontmatterSortInput = {
   readonly date: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
   readonly tags: InputMaybe<SortOrderEnum>;
-  readonly thumbnail: InputMaybe<FileSortInput>;
   readonly title: InputMaybe<SortOrderEnum>;
 };
 
@@ -2881,7 +2877,7 @@ type PostPageQuery = { readonly markdownRemark: { readonly html: string | null, 
 type RecentPostListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type RecentPostListQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly excerpt: string | null, readonly frontmatter: { readonly date: string | null, readonly title: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly thumbnail: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } }> } };
+type RecentPostListQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly excerpt: string | null, readonly frontmatter: { readonly date: string | null, readonly title: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null } | null } }> } };
 
 type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -2893,7 +2889,7 @@ type TagPageQueryVariables = Exact<{
 }>;
 
 
-type TagPageQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly excerpt: string | null, readonly frontmatter: { readonly date: string | null, readonly title: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly thumbnail: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } }> } };
+type TagPageQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly excerpt: string | null, readonly frontmatter: { readonly date: string | null, readonly title: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null } | null } }> } };
 
 type PostQueryVariables = Exact<{ [key: string]: never; }>;
 
