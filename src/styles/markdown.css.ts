@@ -125,7 +125,6 @@ globalStyle(`${markdown} img`, {
 
 globalStyle("code[class*='language-'], pre[class*='language-']", {
   color: '#657b83',
-  fontFamily: "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
   textAlign: 'left',
   whiteSpace: 'pre',
   wordSpacing: 'normal',
