@@ -63,6 +63,9 @@ const config: GatsbyConfig = {
           {
             resolve: 'gatsby-remark-images',
           },
+          {
+            resolve: 'gatsby-remark-gifs',
+          },
         ],
       },
     },
