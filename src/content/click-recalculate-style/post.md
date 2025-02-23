@@ -2,7 +2,7 @@
 date: '2024-12-30 02:41:00'
 title: '버튼을 클릭하면 즉시 recalculate style이 발생한다.'
 slug: 'click-recalculate-style'
-tags: ['브라우저']
+tags: ['Browser']
 ---
 
 의도적으로 클릭 관련 스타일을 모두 없애도, 버튼을 클릭하는 순간 `Recalculate style`이 발생한다.
