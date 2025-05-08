@@ -1,6 +1,0 @@
-node_modules/
-.yarn
-public
-src/gatsby-types.d.ts
-.cache
-.pnp.*
