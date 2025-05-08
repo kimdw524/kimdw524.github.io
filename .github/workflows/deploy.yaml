@@ -1,0 +1,42 @@
+name: Deploy to gh-pages subdirectory
+
+on:
+  push:
+    branches:
+      - 'deploy-*'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    name: Build and deploy
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '20.x'
+
+      # - name: Enable Coprepack
+      #   run: corepack enable
+
+      # - name: Install dependencies
+      #   run: pnpm install
+
+      # - name: Build project
+      #   run: pnpm build
+
+      - name: Get deploy folder name from branch
+        id: branch
+        run: echo "name=${GITHUB_REF#refs/heads/deploy-}" >> $GITHUB_OUTPUT
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./dist
+          destination_dir: ${{ steps.branch.outputs.name }}
+          keep_files: true
