@@ -20,8 +20,11 @@ if (element instanceof Window) {
 ## 해결법
 
 ```js
-expect(Object.create(Window.prototype) instanceof Window).toBe(true);
+Object.setPrototypeOf(window, Window.prototype);
+expect(window instanceof Window).toBe(true);
 ```
+
+window 객체의 프로토타입을 Window.prototype으로 변경하면 됩니다.
 
 ## 더 알아보기
 
@@ -48,17 +51,8 @@ expect(Object.create(Window.prototype) instanceof Window).toBe(true);
       return false;
     };
     ```
-    
-- Object.create()란?
-    - Object.create() 메서드는 지정된 프로토타입 객체 및 속성(property)을 갖는 새 객체를 만듭니다.
-    
-    ```js
-    Object.create(proto[, propertiesObject])
-    ```
-    
 
 ## Reference
 
-- 해결법 (https://stackoverflow.com/questions/62095763/how-to-test-in-jest-for-target-instanceof-window-window)
+- 해결법 (https://github.com/jsdom/jsdom/issues/2740#issuecomment-629792008)
 - instanceof (https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/instanceof)
-- Object.create (https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
