@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[453],{6803:function(n,o,t){t.r(o),t.d(o,{Head:function(){return u}});var e=t(6070);o.default=()=>(0,e.jsx)("main",{children:"page not found"});const u=()=>(0,e.jsx)("title",{children:"Not found"})}}]);
+//# sourceMappingURL=component---src-pages-404-tsx-60e242b83cd925115f41.js.map
